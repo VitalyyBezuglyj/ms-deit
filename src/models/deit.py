@@ -15,7 +15,7 @@ __all__ = [
     'deit_tiny_patch16_224', 'deit_small_patch16_224', 'deit_base_patch16_224',
     'deit_tiny_distilled_patch16_224', 'deit_small_distilled_patch16_224',
     'deit_base_distilled_patch16_224', 'deit_base_patch16_384',
-    'deit_base_distilled_patch16_384',
+    'deit_base_distilled_patch16_384', 'deit_small_patch16_64', 'deit_small_distilled_patch16_64'
 ]
 
 
@@ -65,6 +65,19 @@ class DistilledVisionTransformer(VisionTransformer):
         return x, x_dist
 
 
+def deit_small_distilled_patch16_64(**kwargs):
+    network = DistilledVisionTransformer(
+        img_size=64, patch_size=16, embed_dim=64, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
+        norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
+    return network
+
+
+def deit_small_patch16_64(**kwargs):
+    network = VisionTransformer(
+        img_size=64, patch_size=16, embed_dim=64, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
+        norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
+    return network
+
 def deit_tiny_patch16_224(**kwargs):
     network = VisionTransformer(
         patch_size=16, embed_dim=192, depth=12, num_heads=3, mlp_ratio=4, qkv_bias=True,
@@ -92,6 +105,12 @@ def deit_tiny_distilled_patch16_224(**kwargs):
         norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
     return network
 
+
+def deit_small_distilled_patch16_64(**kwargs):
+    network = DistilledVisionTransformer(
+        img_size=64, patch_size=16, embed_dim=64, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
+        norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
+    return network
 
 def deit_small_distilled_patch16_224(**kwargs):
     network = DistilledVisionTransformer(

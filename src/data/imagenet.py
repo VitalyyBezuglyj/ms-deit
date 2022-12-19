@@ -21,7 +21,6 @@ import zipfile
 import mindspore.common.dtype as mstype
 import mindspore.dataset as ds
 import mindspore.dataset.transforms.c_transforms as C
-import mindspore.dataset.vision.c_transforms as vision
 import mindspore.dataset.vision.py_transforms as py_vision
 
 from src.data.augment.auto_augment import pil_interp, rand_augment_transform
@@ -30,38 +29,57 @@ from src.data.augment.random_erasing import RandomErasing
 from src.data.augment.transforms import RandomResizedCropAndInterpolation, Resize
 from .data_utils.moxing_adapter import sync_data
 
+from datasets import load_dataset
+from PIL import Image
+import numpy as np
+
+class XXXX:
+    #TODO: rename
+
+    def __call__(self, img):
+
+        return Image.frombytes('RGB', (64, 64), img, 'raw')
+
+# class ImageNet:
+#     """ImageNet Define"""
+
+#     def __init__(self, args, training=True):
+#         if args.run_modelarts:
+#             print('Syncing data.')
+#             data_url = args.data_url
+#             local_data_path = '/cache/data'
+#             os.makedirs(local_data_path, exist_ok=True)
+#             sync_data(data_url, local_data_path, threads=256)
+#             print(f"local_data_path:{os.listdir(local_data_path)}")
+#             if "imagenet" in os.listdir(local_data_path):
+#                 local_data_path = os.path.join(local_data_path, "imagenet")
+#             elif "imagenet.zip" in os.listdir(local_data_path):
+#                 zip_file = zipfile.ZipFile(os.path.join(local_data_path, "imagenet.zip"))
+#                 for file in zip_file.namelist():
+#                     zip_file.extract(file, local_data_path)
+#                 local_data_path = os.path.join(local_data_path, "imagenet")
+#             else:
+#                 exit(1)
+#             print('Create train and evaluate dataset.')
+#             train_dir = os.path.join(local_data_path, "train")
+#             val_dir = os.path.join(local_data_path, "val")
+#             self.train_dataset = create_dataset_imagenet(train_dir, training=True, args=args)
+#             self.val_dataset = create_dataset_imagenet(val_dir, training=False, args=args)
+#         else:
+#             train_dir = os.path.join(args.data_url, "train")
+#             val_dir = os.path.join(args.data_url, "val")
+#             if training:
+#                 self.train_dataset = create_dataset_imagenet(train_dir, training=True, args=args)
+#             self.val_dataset = create_dataset_imagenet(val_dir, training=False, args=args)
+
 
 class ImageNet:
-    """ImageNet Define"""
-
-    def __init__(self, args, training=True):
-        if args.run_modelarts:
-            print('Syncing data.')
-            data_url = args.data_url
-            local_data_path = '/cache/data'
-            os.makedirs(local_data_path, exist_ok=True)
-            sync_data(data_url, local_data_path, threads=256)
-            print(f"local_data_path:{os.listdir(local_data_path)}")
-            if "imagenet" in os.listdir(local_data_path):
-                local_data_path = os.path.join(local_data_path, "imagenet")
-            elif "imagenet.zip" in os.listdir(local_data_path):
-                zip_file = zipfile.ZipFile(os.path.join(local_data_path, "imagenet.zip"))
-                for file in zip_file.namelist():
-                    zip_file.extract(file, local_data_path)
-                local_data_path = os.path.join(local_data_path, "imagenet")
-            else:
-                exit(1)
-            print('Create train and evaluate dataset.')
-            train_dir = os.path.join(local_data_path, "train")
-            val_ir = os.path.join(local_data_path, "val")
+    def __init__(self, args, training=True) -> None:
+        train_dir = os.path.join(args.data_url, "train")
+        val_dir = os.path.join(args.data_url, "val")
+        if training:
             self.train_dataset = create_dataset_imagenet(train_dir, training=True, args=args)
-            self.val_dataset = create_dataset_imagenet(val_ir, training=False, args=args)
-        else:
-            train_dir = os.path.join(args.data_url, "train")
-            val_ir = os.path.join(args.data_url, "val")
-            if training:
-                self.train_dataset = create_dataset_imagenet(train_dir, training=True, args=args)
-            self.val_dataset = create_dataset_imagenet(val_ir, training=False, args=args)
+        self.val_dataset = create_dataset_imagenet(val_dir, training=False, args=args)            
 
 
 def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
@@ -80,10 +98,10 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
     device_num, rank_id = _get_rank_info()
     shuffle = training
     if device_num == 1 or not training:
-        data_set = ds.ImageFolderDataset(dataset_dir, num_parallel_workers=args.num_parallel_workers,
+        data_set = ds.CSVDataset(dataset_files = "/home/workdir/src/data/d_valid.csv", num_parallel_workers=args.num_parallel_workers,
                                          shuffle=shuffle)
     else:
-        data_set = ds.ImageFolderDataset(dataset_dir, num_parallel_workers=args.num_parallel_workers, shuffle=shuffle,
+        data_set = ds.CSVDataset(dataset_files = "/home/workdir/src/data/d_train.csv", num_parallel_workers=args.num_parallel_workers, shuffle=shuffle,
                                          num_shards=device_num, shard_id=rank_id)
 
     image_size = args.image_size
@@ -104,8 +122,9 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
             aa_params["interpolation"] = pil_interp(interpolation)
         assert auto_augment.startswith('rand')
         transform_img = [
-            vision.Decode(),
-            py_vision.ToPIL(),
+            # vision.Decode(), TODO delete
+            # py_vision.ToPIL(),
+            XXXX(),
             RandomResizedCropAndInterpolation(size=args.image_size, scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.),
                                               interpolation=interpolation),
             py_vision.RandomHorizontalFlip(prob=0.5),
@@ -119,15 +138,23 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
     else:
         # test transform complete
         transform_img = [
-            vision.Decode(),
-            py_vision.ToPIL(),
+            # vision.Decode(),
+            # py_vision.ToPIL(),
+            XXXX(),
             Resize(int(args.image_size / args.crop_pct), interpolation=args.interpolation),
             py_vision.CenterCrop(image_size),
             py_vision.ToTensor(),
             py_vision.Normalize(mean=mean, std=std)
         ]
     transform_label = C.TypeCast(mstype.int32)
+    iterator = data_set.create_dict_iterator(output_numpy =True)
 
+    for item in iterator:
+        # print(item['image'])
+
+        print(np.array(Image.frombytes('RGB', (64, 64), item['image'], 'raw')).shape)
+        # print(item['image'])
+        break
     data_set = data_set.map(input_columns="image", num_parallel_workers=args.num_parallel_workers,
                             operations=transform_img)
     data_set = data_set.map(input_columns="label", num_parallel_workers=args.num_parallel_workers,

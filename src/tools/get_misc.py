@@ -82,6 +82,7 @@ def get_dataset(args, training=True):
 def get_model(args):
     """"Get model according to args.arch"""
     print("==> Creating model '{}'".format(args.arch))
+    # print(models.__dict__)
     model = models.__dict__[args.arch](drop_path_rate=args.drop_path_rate, num_classes=args.num_classes)
 
     return model

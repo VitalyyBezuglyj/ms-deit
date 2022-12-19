@@ -44,7 +44,7 @@ def parse_arguments():
     parser.add_argument('--data_url', default="./data", help='location of data.')
     parser.add_argument("--device_id", default=0, type=int, help="device id")
     parser.add_argument("--device_num", default=1, type=int, help="device num")
-    parser.add_argument("--device_target", default="Ascend", choices=["GPU", "Ascend"], type=str)
+    parser.add_argument("--device_target", default="GPU", choices=["GPU", "Ascend"], type=str)
     parser.add_argument("--epochs", default=300, type=int, metavar="N", help="number of total epochs to run")
     parser.add_argument("--cooldown_epochs", default=10, type=int, help="cooldown epochs")
     parser.add_argument("--eps", default=1e-8, type=float)
@@ -53,7 +53,7 @@ def parse_arguments():
     parser.add_argument("--is_dynamic_loss_scale", default=1, type=int, help="is_dynamic_loss_scale ")
     parser.add_argument("--keep_checkpoint_max", default=20, type=int, help="keep checkpoint max num")
     parser.add_argument("--optimizer", help="Which optimizer to use", default="sgd")
-    parser.add_argument("--set", help="name of dataset", type=str, default="ImageNet")
+    parser.add_argument("--set", help="name of dataset", type=str, default="ImageNet") #TODO
     parser.add_argument("--mix_up", default=0., type=float, help="mix up")
     parser.add_argument("--mlp_ratio", help="mlp ", default=4., type=float)
     parser.add_argument("-j", "--num_parallel_workers", default=20, type=int, metavar="N",
