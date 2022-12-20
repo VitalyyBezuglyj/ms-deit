@@ -1,0 +1,1230 @@
+# 1.This file shows the parsed IR info when graph evaluating failed to help find the problem.
+# 2.You can search the last `------------------------>` to the node which is inferred failed.
+# 3.Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.dat to get more instructions.
+# ===============================================================================
+
+# [No.1] Default_wrapper.1
+# In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:105/    def construct(self):/
+funcgraph fg_1(
+        %para1 : Ref[Tensor(F32)][]    # scale_sense
+        , %para2 : Ref[Tensor(F32)][1, 1, 64]    # model.cls_token
+        , %para3 : Ref[Tensor(F32)][1, 17, 64]    # model.pos_embed
+        , %para4 : Ref[Tensor(F32)][64]    # model.patch_embed.proj.bias
+        , %para5 : Ref[Tensor(F32)][64]    # model.blocks.0.norm1.gamma
+        , %para6 : Ref[Tensor(F32)][64]    # model.blocks.0.norm1.beta
+        , %para7 : Ref[Tensor(F32)][64]    # model.blocks.0.attn.q.bias
+        , %para8 : Ref[Tensor(F32)][64]    # model.blocks.0.attn.k.bias
+        , %para9 : Ref[Tensor(F32)][64]    # model.blocks.0.attn.v.bias
+        , %para10 : Ref[Tensor(F32)][64]    # model.blocks.0.attn.proj.bias
+        , %para11 : Ref[Tensor(F32)][64]    # model.blocks.0.norm2.gamma
+        , %para12 : Ref[Tensor(F32)][64]    # model.blocks.0.norm2.beta
+        , %para13 : Ref[Tensor(F32)][256]    # model.blocks.0.mlp.fc1.bias
+        , %para14 : Ref[Tensor(F32)][64]    # model.blocks.0.mlp.fc2.bias
+        , %para15 : Ref[Tensor(F32)][64]    # model.blocks.1.norm1.gamma
+        , %para16 : Ref[Tensor(F32)][64]    # model.blocks.1.norm1.beta
+        , %para17 : Ref[Tensor(F32)][64]    # model.blocks.1.attn.q.bias
+        , %para18 : Ref[Tensor(F32)][64]    # model.blocks.1.attn.k.bias
+        , %para19 : Ref[Tensor(F32)][64]    # model.blocks.1.attn.v.bias
+        , %para20 : Ref[Tensor(F32)][64]    # model.blocks.1.attn.proj.bias
+        , %para21 : Ref[Tensor(F32)][64]    # model.blocks.1.norm2.gamma
+        , %para22 : Ref[Tensor(F32)][64]    # model.blocks.1.norm2.beta
+        , %para23 : Ref[Tensor(F32)][256]    # model.blocks.1.mlp.fc1.bias
+        , %para24 : Ref[Tensor(F32)][64]    # model.blocks.1.mlp.fc2.bias
+        , %para25 : Ref[Tensor(F32)][64]    # model.blocks.2.norm1.gamma
+        , %para26 : Ref[Tensor(F32)][64]    # model.blocks.2.norm1.beta
+        , %para27 : Ref[Tensor(F32)][64]    # model.blocks.2.attn.q.bias
+        , %para28 : Ref[Tensor(F32)][64]    # model.blocks.2.attn.k.bias
+        , %para29 : Ref[Tensor(F32)][64]    # model.blocks.2.attn.v.bias
+        , %para30 : Ref[Tensor(F32)][64]    # model.blocks.2.attn.proj.bias
+        , %para31 : Ref[Tensor(F32)][64]    # model.blocks.2.norm2.gamma
+        , %para32 : Ref[Tensor(F32)][64]    # model.blocks.2.norm2.beta
+        , %para33 : Ref[Tensor(F32)][256]    # model.blocks.2.mlp.fc1.bias
+        , %para34 : Ref[Tensor(F32)][64]    # model.blocks.2.mlp.fc2.bias
+        , %para35 : Ref[Tensor(F32)][64]    # model.blocks.3.norm1.gamma
+        , %para36 : Ref[Tensor(F32)][64]    # model.blocks.3.norm1.beta
+        , %para37 : Ref[Tensor(F32)][64]    # model.blocks.3.attn.q.bias
+        , %para38 : Ref[Tensor(F32)][64]    # model.blocks.3.attn.k.bias
+        , %para39 : Ref[Tensor(F32)][64]    # model.blocks.3.attn.v.bias
+        , %para40 : Ref[Tensor(F32)][64]    # model.blocks.3.attn.proj.bias
+        , %para41 : Ref[Tensor(F32)][64]    # model.blocks.3.norm2.gamma
+        , %para42 : Ref[Tensor(F32)][64]    # model.blocks.3.norm2.beta
+        , %para43 : Ref[Tensor(F32)][256]    # model.blocks.3.mlp.fc1.bias
+        , %para44 : Ref[Tensor(F32)][64]    # model.blocks.3.mlp.fc2.bias
+        , %para45 : Ref[Tensor(F32)][64]    # model.blocks.4.norm1.gamma
+        , %para46 : Ref[Tensor(F32)][64]    # model.blocks.4.norm1.beta
+        , %para47 : Ref[Tensor(F32)][64]    # model.blocks.4.attn.q.bias
+        , %para48 : Ref[Tensor(F32)][64]    # model.blocks.4.attn.k.bias
+        , %para49 : Ref[Tensor(F32)][64]    # model.blocks.4.attn.v.bias
+        , %para50 : Ref[Tensor(F32)][64]    # model.blocks.4.attn.proj.bias
+        , %para51 : Ref[Tensor(F32)][64]    # model.blocks.4.norm2.gamma
+        , %para52 : Ref[Tensor(F32)][64]    # model.blocks.4.norm2.beta
+        , %para53 : Ref[Tensor(F32)][256]    # model.blocks.4.mlp.fc1.bias
+        , %para54 : Ref[Tensor(F32)][64]    # model.blocks.4.mlp.fc2.bias
+        , %para55 : Ref[Tensor(F32)][64]    # model.blocks.5.norm1.gamma
+        , %para56 : Ref[Tensor(F32)][64]    # model.blocks.5.norm1.beta
+        , %para57 : Ref[Tensor(F32)][64]    # model.blocks.5.attn.q.bias
+        , %para58 : Ref[Tensor(F32)][64]    # model.blocks.5.attn.k.bias
+        , %para59 : Ref[Tensor(F32)][64]    # model.blocks.5.attn.v.bias
+        , %para60 : Ref[Tensor(F32)][64]    # model.blocks.5.attn.proj.bias
+        , %para61 : Ref[Tensor(F32)][64]    # model.blocks.5.norm2.gamma
+        , %para62 : Ref[Tensor(F32)][64]    # model.blocks.5.norm2.beta
+        , %para63 : Ref[Tensor(F32)][256]    # model.blocks.5.mlp.fc1.bias
+        , %para64 : Ref[Tensor(F32)][64]    # model.blocks.5.mlp.fc2.bias
+        , %para65 : Ref[Tensor(F32)][64]    # model.blocks.6.norm1.gamma
+        , %para66 : Ref[Tensor(F32)][64]    # model.blocks.6.norm1.beta
+        , %para67 : Ref[Tensor(F32)][64]    # model.blocks.6.attn.q.bias
+        , %para68 : Ref[Tensor(F32)][64]    # model.blocks.6.attn.k.bias
+        , %para69 : Ref[Tensor(F32)][64]    # model.blocks.6.attn.v.bias
+        , %para70 : Ref[Tensor(F32)][64]    # model.blocks.6.attn.proj.bias
+        , %para71 : Ref[Tensor(F32)][64]    # model.blocks.6.norm2.gamma
+        , %para72 : Ref[Tensor(F32)][64]    # model.blocks.6.norm2.beta
+        , %para73 : Ref[Tensor(F32)][256]    # model.blocks.6.mlp.fc1.bias
+        , %para74 : Ref[Tensor(F32)][64]    # model.blocks.6.mlp.fc2.bias
+        , %para75 : Ref[Tensor(F32)][64]    # model.blocks.7.norm1.gamma
+        , %para76 : Ref[Tensor(F32)][64]    # model.blocks.7.norm1.beta
+        , %para77 : Ref[Tensor(F32)][64]    # model.blocks.7.attn.q.bias
+        , %para78 : Ref[Tensor(F32)][64]    # model.blocks.7.attn.k.bias
+        , %para79 : Ref[Tensor(F32)][64]    # model.blocks.7.attn.v.bias
+        , %para80 : Ref[Tensor(F32)][64]    # model.blocks.7.attn.proj.bias
+        , %para81 : Ref[Tensor(F32)][64]    # model.blocks.7.norm2.gamma
+        , %para82 : Ref[Tensor(F32)][64]    # model.blocks.7.norm2.beta
+        , %para83 : Ref[Tensor(F32)][256]    # model.blocks.7.mlp.fc1.bias
+        , %para84 : Ref[Tensor(F32)][64]    # model.blocks.7.mlp.fc2.bias
+        , %para85 : Ref[Tensor(F32)][64]    # model.blocks.8.norm1.gamma
+        , %para86 : Ref[Tensor(F32)][64]    # model.blocks.8.norm1.beta
+        , %para87 : Ref[Tensor(F32)][64]    # model.blocks.8.attn.q.bias
+        , %para88 : Ref[Tensor(F32)][64]    # model.blocks.8.attn.k.bias
+        , %para89 : Ref[Tensor(F32)][64]    # model.blocks.8.attn.v.bias
+        , %para90 : Ref[Tensor(F32)][64]    # model.blocks.8.attn.proj.bias
+        , %para91 : Ref[Tensor(F32)][64]    # model.blocks.8.norm2.gamma
+        , %para92 : Ref[Tensor(F32)][64]    # model.blocks.8.norm2.beta
+        , %para93 : Ref[Tensor(F32)][256]    # model.blocks.8.mlp.fc1.bias
+        , %para94 : Ref[Tensor(F32)][64]    # model.blocks.8.mlp.fc2.bias
+        , %para95 : Ref[Tensor(F32)][64]    # model.blocks.9.norm1.gamma
+        , %para96 : Ref[Tensor(F32)][64]    # model.blocks.9.norm1.beta
+        , %para97 : Ref[Tensor(F32)][64]    # model.blocks.9.attn.q.bias
+        , %para98 : Ref[Tensor(F32)][64]    # model.blocks.9.attn.k.bias
+        , %para99 : Ref[Tensor(F32)][64]    # model.blocks.9.attn.v.bias
+        , %para100 : Ref[Tensor(F32)][64]    # model.blocks.9.attn.proj.bias
+        , %para101 : Ref[Tensor(F32)][64]    # model.blocks.9.norm2.gamma
+        , %para102 : Ref[Tensor(F32)][64]    # model.blocks.9.norm2.beta
+        , %para103 : Ref[Tensor(F32)][256]    # model.blocks.9.mlp.fc1.bias
+        , %para104 : Ref[Tensor(F32)][64]    # model.blocks.9.mlp.fc2.bias
+        , %para105 : Ref[Tensor(F32)][64]    # model.blocks.10.norm1.gamma
+        , %para106 : Ref[Tensor(F32)][64]    # model.blocks.10.norm1.beta
+        , %para107 : Ref[Tensor(F32)][64]    # model.blocks.10.attn.q.bias
+        , %para108 : Ref[Tensor(F32)][64]    # model.blocks.10.attn.k.bias
+        , %para109 : Ref[Tensor(F32)][64]    # model.blocks.10.attn.v.bias
+        , %para110 : Ref[Tensor(F32)][64]    # model.blocks.10.attn.proj.bias
+        , %para111 : Ref[Tensor(F32)][64]    # model.blocks.10.norm2.gamma
+        , %para112 : Ref[Tensor(F32)][64]    # model.blocks.10.norm2.beta
+        , %para113 : Ref[Tensor(F32)][256]    # model.blocks.10.mlp.fc1.bias
+        , %para114 : Ref[Tensor(F32)][64]    # model.blocks.10.mlp.fc2.bias
+        , %para115 : Ref[Tensor(F32)][64]    # model.blocks.11.norm1.gamma
+        , %para116 : Ref[Tensor(F32)][64]    # model.blocks.11.norm1.beta
+        , %para117 : Ref[Tensor(F32)][64]    # model.blocks.11.attn.q.bias
+        , %para118 : Ref[Tensor(F32)][64]    # model.blocks.11.attn.k.bias
+        , %para119 : Ref[Tensor(F32)][64]    # model.blocks.11.attn.v.bias
+        , %para120 : Ref[Tensor(F32)][64]    # model.blocks.11.attn.proj.bias
+        , %para121 : Ref[Tensor(F32)][64]    # model.blocks.11.norm2.gamma
+        , %para122 : Ref[Tensor(F32)][64]    # model.blocks.11.norm2.beta
+        , %para123 : Ref[Tensor(F32)][256]    # model.blocks.11.mlp.fc1.bias
+        , %para124 : Ref[Tensor(F32)][64]    # model.blocks.11.mlp.fc2.bias
+        , %para125 : Ref[Tensor(F32)][64]    # model.norm.gamma
+        , %para126 : Ref[Tensor(F32)][64]    # model.norm.beta
+        , %para127 : Ref[Tensor(F32)][200]    # model.head.bias
+        , %para128 : Ref[Tensor(F32)][64, 3, 16, 16]    # model.patch_embed.proj.weight
+        , %para129 : Ref[Tensor(F32)][64, 64]    # model.blocks.0.attn.q.weight
+        , %para130 : Ref[Tensor(F32)][64, 64]    # model.blocks.0.attn.k.weight
+        , %para131 : Ref[Tensor(F32)][64, 64]    # model.blocks.0.attn.v.weight
+        , %para132 : Ref[Tensor(F32)][64, 64]    # model.blocks.0.attn.proj.weight
+        , %para133 : Ref[Tensor(F32)][256, 64]    # model.blocks.0.mlp.fc1.weight
+        , %para134 : Ref[Tensor(F32)][64, 256]    # model.blocks.0.mlp.fc2.weight
+        , %para135 : Ref[Tensor(F32)][64, 64]    # model.blocks.1.attn.q.weight
+        , %para136 : Ref[Tensor(F32)][64, 64]    # model.blocks.1.attn.k.weight
+        , %para137 : Ref[Tensor(F32)][64, 64]    # model.blocks.1.attn.v.weight
+        , %para138 : Ref[Tensor(F32)][64, 64]    # model.blocks.1.attn.proj.weight
+        , %para139 : Ref[Tensor(F32)][256, 64]    # model.blocks.1.mlp.fc1.weight
+        , %para140 : Ref[Tensor(F32)][64, 256]    # model.blocks.1.mlp.fc2.weight
+        , %para141 : Ref[Tensor(F32)][64, 64]    # model.blocks.2.attn.q.weight
+        , %para142 : Ref[Tensor(F32)][64, 64]    # model.blocks.2.attn.k.weight
+        , %para143 : Ref[Tensor(F32)][64, 64]    # model.blocks.2.attn.v.weight
+        , %para144 : Ref[Tensor(F32)][64, 64]    # model.blocks.2.attn.proj.weight
+        , %para145 : Ref[Tensor(F32)][256, 64]    # model.blocks.2.mlp.fc1.weight
+        , %para146 : Ref[Tensor(F32)][64, 256]    # model.blocks.2.mlp.fc2.weight
+        , %para147 : Ref[Tensor(F32)][64, 64]    # model.blocks.3.attn.q.weight
+        , %para148 : Ref[Tensor(F32)][64, 64]    # model.blocks.3.attn.k.weight
+        , %para149 : Ref[Tensor(F32)][64, 64]    # model.blocks.3.attn.v.weight
+        , %para150 : Ref[Tensor(F32)][64, 64]    # model.blocks.3.attn.proj.weight
+        , %para151 : Ref[Tensor(F32)][256, 64]    # model.blocks.3.mlp.fc1.weight
+        , %para152 : Ref[Tensor(F32)][64, 256]    # model.blocks.3.mlp.fc2.weight
+        , %para153 : Ref[Tensor(F32)][64, 64]    # model.blocks.4.attn.q.weight
+        , %para154 : Ref[Tensor(F32)][64, 64]    # model.blocks.4.attn.k.weight
+        , %para155 : Ref[Tensor(F32)][64, 64]    # model.blocks.4.attn.v.weight
+        , %para156 : Ref[Tensor(F32)][64, 64]    # model.blocks.4.attn.proj.weight
+        , %para157 : Ref[Tensor(F32)][256, 64]    # model.blocks.4.mlp.fc1.weight
+        , %para158 : Ref[Tensor(F32)][64, 256]    # model.blocks.4.mlp.fc2.weight
+        , %para159 : Ref[Tensor(F32)][64, 64]    # model.blocks.5.attn.q.weight
+        , %para160 : Ref[Tensor(F32)][64, 64]    # model.blocks.5.attn.k.weight
+        , %para161 : Ref[Tensor(F32)][64, 64]    # model.blocks.5.attn.v.weight
+        , %para162 : Ref[Tensor(F32)][64, 64]    # model.blocks.5.attn.proj.weight
+        , %para163 : Ref[Tensor(F32)][256, 64]    # model.blocks.5.mlp.fc1.weight
+        , %para164 : Ref[Tensor(F32)][64, 256]    # model.blocks.5.mlp.fc2.weight
+        , %para165 : Ref[Tensor(F32)][64, 64]    # model.blocks.6.attn.q.weight
+        , %para166 : Ref[Tensor(F32)][64, 64]    # model.blocks.6.attn.k.weight
+        , %para167 : Ref[Tensor(F32)][64, 64]    # model.blocks.6.attn.v.weight
+        , %para168 : Ref[Tensor(F32)][64, 64]    # model.blocks.6.attn.proj.weight
+        , %para169 : Ref[Tensor(F32)][256, 64]    # model.blocks.6.mlp.fc1.weight
+        , %para170 : Ref[Tensor(F32)][64, 256]    # model.blocks.6.mlp.fc2.weight
+        , %para171 : Ref[Tensor(F32)][64, 64]    # model.blocks.7.attn.q.weight
+        , %para172 : Ref[Tensor(F32)][64, 64]    # model.blocks.7.attn.k.weight
+        , %para173 : Ref[Tensor(F32)][64, 64]    # model.blocks.7.attn.v.weight
+        , %para174 : Ref[Tensor(F32)][64, 64]    # model.blocks.7.attn.proj.weight
+        , %para175 : Ref[Tensor(F32)][256, 64]    # model.blocks.7.mlp.fc1.weight
+        , %para176 : Ref[Tensor(F32)][64, 256]    # model.blocks.7.mlp.fc2.weight
+        , %para177 : Ref[Tensor(F32)][64, 64]    # model.blocks.8.attn.q.weight
+        , %para178 : Ref[Tensor(F32)][64, 64]    # model.blocks.8.attn.k.weight
+        , %para179 : Ref[Tensor(F32)][64, 64]    # model.blocks.8.attn.v.weight
+        , %para180 : Ref[Tensor(F32)][64, 64]    # model.blocks.8.attn.proj.weight
+        , %para181 : Ref[Tensor(F32)][256, 64]    # model.blocks.8.mlp.fc1.weight
+        , %para182 : Ref[Tensor(F32)][64, 256]    # model.blocks.8.mlp.fc2.weight
+        , %para183 : Ref[Tensor(F32)][64, 64]    # model.blocks.9.attn.q.weight
+        , %para184 : Ref[Tensor(F32)][64, 64]    # model.blocks.9.attn.k.weight
+        , %para185 : Ref[Tensor(F32)][64, 64]    # model.blocks.9.attn.v.weight
+        , %para186 : Ref[Tensor(F32)][64, 64]    # model.blocks.9.attn.proj.weight
+        , %para187 : Ref[Tensor(F32)][256, 64]    # model.blocks.9.mlp.fc1.weight
+        , %para188 : Ref[Tensor(F32)][64, 256]    # model.blocks.9.mlp.fc2.weight
+        , %para189 : Ref[Tensor(F32)][64, 64]    # model.blocks.10.attn.q.weight
+        , %para190 : Ref[Tensor(F32)][64, 64]    # model.blocks.10.attn.k.weight
+        , %para191 : Ref[Tensor(F32)][64, 64]    # model.blocks.10.attn.v.weight
+        , %para192 : Ref[Tensor(F32)][64, 64]    # model.blocks.10.attn.proj.weight
+        , %para193 : Ref[Tensor(F32)][256, 64]    # model.blocks.10.mlp.fc1.weight
+        , %para194 : Ref[Tensor(F32)][64, 256]    # model.blocks.10.mlp.fc2.weight
+        , %para195 : Ref[Tensor(F32)][64, 64]    # model.blocks.11.attn.q.weight
+        , %para196 : Ref[Tensor(F32)][64, 64]    # model.blocks.11.attn.k.weight
+        , %para197 : Ref[Tensor(F32)][64, 64]    # model.blocks.11.attn.v.weight
+        , %para198 : Ref[Tensor(F32)][64, 64]    # model.blocks.11.attn.proj.weight
+        , %para199 : Ref[Tensor(F32)][256, 64]    # model.blocks.11.mlp.fc1.weight
+        , %para200 : Ref[Tensor(F32)][64, 256]    # model.blocks.11.mlp.fc2.weight
+        , %para201 : Ref[Tensor(F32)][200, 64]    # model.head.weight
+        , %para202 : Ref[Tensor(I32)][]    # current_iterator_step
+        , %para203 : Ref[Tensor(I32)][]    # last_overflow_iterator_step
+        , %para204 : Ref[Tensor(F32)][1, 1, 64]    # adam_m.model.cls_token
+        , %para205 : Ref[Tensor(F32)][1, 17, 64]    # adam_m.model.pos_embed
+        , %para206 : Ref[Tensor(F32)][64]    # adam_m.model.patch_embed.proj.bias
+        , %para207 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.norm1.gamma
+        , %para208 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.norm1.beta
+        , %para209 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.attn.q.bias
+        , %para210 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.attn.k.bias
+        , %para211 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.attn.v.bias
+        , %para212 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.attn.proj.bias
+        , %para213 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.norm2.gamma
+        , %para214 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.norm2.beta
+        , %para215 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.0.mlp.fc1.bias
+        , %para216 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.0.mlp.fc2.bias
+        , %para217 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.norm1.gamma
+        , %para218 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.norm1.beta
+        , %para219 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.attn.q.bias
+        , %para220 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.attn.k.bias
+        , %para221 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.attn.v.bias
+        , %para222 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.attn.proj.bias
+        , %para223 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.norm2.gamma
+        , %para224 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.norm2.beta
+        , %para225 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.1.mlp.fc1.bias
+        , %para226 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.1.mlp.fc2.bias
+        , %para227 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.norm1.gamma
+        , %para228 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.norm1.beta
+        , %para229 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.attn.q.bias
+        , %para230 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.attn.k.bias
+        , %para231 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.attn.v.bias
+        , %para232 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.attn.proj.bias
+        , %para233 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.norm2.gamma
+        , %para234 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.norm2.beta
+        , %para235 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.2.mlp.fc1.bias
+        , %para236 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.2.mlp.fc2.bias
+        , %para237 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.norm1.gamma
+        , %para238 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.norm1.beta
+        , %para239 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.attn.q.bias
+        , %para240 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.attn.k.bias
+        , %para241 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.attn.v.bias
+        , %para242 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.attn.proj.bias
+        , %para243 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.norm2.gamma
+        , %para244 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.norm2.beta
+        , %para245 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.3.mlp.fc1.bias
+        , %para246 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.3.mlp.fc2.bias
+        , %para247 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.norm1.gamma
+        , %para248 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.norm1.beta
+        , %para249 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.attn.q.bias
+        , %para250 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.attn.k.bias
+        , %para251 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.attn.v.bias
+        , %para252 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.attn.proj.bias
+        , %para253 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.norm2.gamma
+        , %para254 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.norm2.beta
+        , %para255 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.4.mlp.fc1.bias
+        , %para256 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.4.mlp.fc2.bias
+        , %para257 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.norm1.gamma
+        , %para258 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.norm1.beta
+        , %para259 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.attn.q.bias
+        , %para260 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.attn.k.bias
+        , %para261 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.attn.v.bias
+        , %para262 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.attn.proj.bias
+        , %para263 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.norm2.gamma
+        , %para264 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.norm2.beta
+        , %para265 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.5.mlp.fc1.bias
+        , %para266 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.5.mlp.fc2.bias
+        , %para267 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.norm1.gamma
+        , %para268 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.norm1.beta
+        , %para269 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.attn.q.bias
+        , %para270 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.attn.k.bias
+        , %para271 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.attn.v.bias
+        , %para272 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.attn.proj.bias
+        , %para273 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.norm2.gamma
+        , %para274 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.norm2.beta
+        , %para275 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.6.mlp.fc1.bias
+        , %para276 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.6.mlp.fc2.bias
+        , %para277 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.norm1.gamma
+        , %para278 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.norm1.beta
+        , %para279 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.attn.q.bias
+        , %para280 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.attn.k.bias
+        , %para281 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.attn.v.bias
+        , %para282 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.attn.proj.bias
+        , %para283 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.norm2.gamma
+        , %para284 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.norm2.beta
+        , %para285 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.7.mlp.fc1.bias
+        , %para286 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.7.mlp.fc2.bias
+        , %para287 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.norm1.gamma
+        , %para288 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.norm1.beta
+        , %para289 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.attn.q.bias
+        , %para290 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.attn.k.bias
+        , %para291 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.attn.v.bias
+        , %para292 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.attn.proj.bias
+        , %para293 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.norm2.gamma
+        , %para294 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.norm2.beta
+        , %para295 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.8.mlp.fc1.bias
+        , %para296 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.8.mlp.fc2.bias
+        , %para297 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.norm1.gamma
+        , %para298 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.norm1.beta
+        , %para299 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.attn.q.bias
+        , %para300 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.attn.k.bias
+        , %para301 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.attn.v.bias
+        , %para302 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.attn.proj.bias
+        , %para303 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.norm2.gamma
+        , %para304 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.norm2.beta
+        , %para305 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.9.mlp.fc1.bias
+        , %para306 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.9.mlp.fc2.bias
+        , %para307 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.norm1.gamma
+        , %para308 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.norm1.beta
+        , %para309 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.attn.q.bias
+        , %para310 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.attn.k.bias
+        , %para311 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.attn.v.bias
+        , %para312 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.attn.proj.bias
+        , %para313 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.norm2.gamma
+        , %para314 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.norm2.beta
+        , %para315 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.10.mlp.fc1.bias
+        , %para316 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.10.mlp.fc2.bias
+        , %para317 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.norm1.gamma
+        , %para318 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.norm1.beta
+        , %para319 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.attn.q.bias
+        , %para320 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.attn.k.bias
+        , %para321 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.attn.v.bias
+        , %para322 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.attn.proj.bias
+        , %para323 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.norm2.gamma
+        , %para324 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.norm2.beta
+        , %para325 : Ref[Tensor(F32)][256]    # adam_m.model.blocks.11.mlp.fc1.bias
+        , %para326 : Ref[Tensor(F32)][64]    # adam_m.model.blocks.11.mlp.fc2.bias
+        , %para327 : Ref[Tensor(F32)][64]    # adam_m.model.norm.gamma
+        , %para328 : Ref[Tensor(F32)][64]    # adam_m.model.norm.beta
+        , %para329 : Ref[Tensor(F32)][200]    # adam_m.model.head.bias
+        , %para330 : Ref[Tensor(F32)][64, 3, 16, 16]    # adam_m.model.patch_embed.proj.weight
+        , %para331 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.0.attn.q.weight
+        , %para332 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.0.attn.k.weight
+        , %para333 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.0.attn.v.weight
+        , %para334 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.0.attn.proj.weight
+        , %para335 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.0.mlp.fc1.weight
+        , %para336 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.0.mlp.fc2.weight
+        , %para337 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.1.attn.q.weight
+        , %para338 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.1.attn.k.weight
+        , %para339 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.1.attn.v.weight
+        , %para340 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.1.attn.proj.weight
+        , %para341 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.1.mlp.fc1.weight
+        , %para342 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.1.mlp.fc2.weight
+        , %para343 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.2.attn.q.weight
+        , %para344 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.2.attn.k.weight
+        , %para345 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.2.attn.v.weight
+        , %para346 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.2.attn.proj.weight
+        , %para347 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.2.mlp.fc1.weight
+        , %para348 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.2.mlp.fc2.weight
+        , %para349 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.3.attn.q.weight
+        , %para350 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.3.attn.k.weight
+        , %para351 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.3.attn.v.weight
+        , %para352 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.3.attn.proj.weight
+        , %para353 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.3.mlp.fc1.weight
+        , %para354 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.3.mlp.fc2.weight
+        , %para355 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.4.attn.q.weight
+        , %para356 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.4.attn.k.weight
+        , %para357 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.4.attn.v.weight
+        , %para358 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.4.attn.proj.weight
+        , %para359 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.4.mlp.fc1.weight
+        , %para360 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.4.mlp.fc2.weight
+        , %para361 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.5.attn.q.weight
+        , %para362 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.5.attn.k.weight
+        , %para363 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.5.attn.v.weight
+        , %para364 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.5.attn.proj.weight
+        , %para365 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.5.mlp.fc1.weight
+        , %para366 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.5.mlp.fc2.weight
+        , %para367 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.6.attn.q.weight
+        , %para368 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.6.attn.k.weight
+        , %para369 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.6.attn.v.weight
+        , %para370 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.6.attn.proj.weight
+        , %para371 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.6.mlp.fc1.weight
+        , %para372 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.6.mlp.fc2.weight
+        , %para373 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.7.attn.q.weight
+        , %para374 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.7.attn.k.weight
+        , %para375 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.7.attn.v.weight
+        , %para376 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.7.attn.proj.weight
+        , %para377 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.7.mlp.fc1.weight
+        , %para378 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.7.mlp.fc2.weight
+        , %para379 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.8.attn.q.weight
+        , %para380 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.8.attn.k.weight
+        , %para381 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.8.attn.v.weight
+        , %para382 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.8.attn.proj.weight
+        , %para383 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.8.mlp.fc1.weight
+        , %para384 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.8.mlp.fc2.weight
+        , %para385 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.9.attn.q.weight
+        , %para386 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.9.attn.k.weight
+        , %para387 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.9.attn.v.weight
+        , %para388 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.9.attn.proj.weight
+        , %para389 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.9.mlp.fc1.weight
+        , %para390 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.9.mlp.fc2.weight
+        , %para391 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.10.attn.q.weight
+        , %para392 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.10.attn.k.weight
+        , %para393 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.10.attn.v.weight
+        , %para394 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.10.attn.proj.weight
+        , %para395 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.10.mlp.fc1.weight
+        , %para396 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.10.mlp.fc2.weight
+        , %para397 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.11.attn.q.weight
+        , %para398 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.11.attn.k.weight
+        , %para399 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.11.attn.v.weight
+        , %para400 : Ref[Tensor(F32)][64, 64]    # adam_m.model.blocks.11.attn.proj.weight
+        , %para401 : Ref[Tensor(F32)][256, 64]    # adam_m.model.blocks.11.mlp.fc1.weight
+        , %para402 : Ref[Tensor(F32)][64, 256]    # adam_m.model.blocks.11.mlp.fc2.weight
+        , %para403 : Ref[Tensor(F32)][200, 64]    # adam_m.model.head.weight
+        , %para404 : Ref[Tensor(F32)][1, 1, 64]    # adam_v.model.cls_token
+        , %para405 : Ref[Tensor(F32)][1, 17, 64]    # adam_v.model.pos_embed
+        , %para406 : Ref[Tensor(F32)][64]    # adam_v.model.patch_embed.proj.bias
+        , %para407 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.norm1.gamma
+        , %para408 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.norm1.beta
+        , %para409 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.attn.q.bias
+        , %para410 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.attn.k.bias
+        , %para411 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.attn.v.bias
+        , %para412 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.attn.proj.bias
+        , %para413 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.norm2.gamma
+        , %para414 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.norm2.beta
+        , %para415 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.0.mlp.fc1.bias
+        , %para416 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.0.mlp.fc2.bias
+        , %para417 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.norm1.gamma
+        , %para418 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.norm1.beta
+        , %para419 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.attn.q.bias
+        , %para420 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.attn.k.bias
+        , %para421 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.attn.v.bias
+        , %para422 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.attn.proj.bias
+        , %para423 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.norm2.gamma
+        , %para424 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.norm2.beta
+        , %para425 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.1.mlp.fc1.bias
+        , %para426 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.1.mlp.fc2.bias
+        , %para427 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.norm1.gamma
+        , %para428 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.norm1.beta
+        , %para429 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.attn.q.bias
+        , %para430 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.attn.k.bias
+        , %para431 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.attn.v.bias
+        , %para432 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.attn.proj.bias
+        , %para433 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.norm2.gamma
+        , %para434 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.norm2.beta
+        , %para435 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.2.mlp.fc1.bias
+        , %para436 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.2.mlp.fc2.bias
+        , %para437 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.norm1.gamma
+        , %para438 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.norm1.beta
+        , %para439 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.attn.q.bias
+        , %para440 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.attn.k.bias
+        , %para441 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.attn.v.bias
+        , %para442 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.attn.proj.bias
+        , %para443 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.norm2.gamma
+        , %para444 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.norm2.beta
+        , %para445 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.3.mlp.fc1.bias
+        , %para446 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.3.mlp.fc2.bias
+        , %para447 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.norm1.gamma
+        , %para448 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.norm1.beta
+        , %para449 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.attn.q.bias
+        , %para450 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.attn.k.bias
+        , %para451 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.attn.v.bias
+        , %para452 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.attn.proj.bias
+        , %para453 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.norm2.gamma
+        , %para454 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.norm2.beta
+        , %para455 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.4.mlp.fc1.bias
+        , %para456 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.4.mlp.fc2.bias
+        , %para457 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.norm1.gamma
+        , %para458 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.norm1.beta
+        , %para459 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.attn.q.bias
+        , %para460 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.attn.k.bias
+        , %para461 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.attn.v.bias
+        , %para462 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.attn.proj.bias
+        , %para463 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.norm2.gamma
+        , %para464 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.norm2.beta
+        , %para465 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.5.mlp.fc1.bias
+        , %para466 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.5.mlp.fc2.bias
+        , %para467 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.norm1.gamma
+        , %para468 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.norm1.beta
+        , %para469 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.attn.q.bias
+        , %para470 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.attn.k.bias
+        , %para471 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.attn.v.bias
+        , %para472 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.attn.proj.bias
+        , %para473 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.norm2.gamma
+        , %para474 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.norm2.beta
+        , %para475 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.6.mlp.fc1.bias
+        , %para476 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.6.mlp.fc2.bias
+        , %para477 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.norm1.gamma
+        , %para478 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.norm1.beta
+        , %para479 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.attn.q.bias
+        , %para480 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.attn.k.bias
+        , %para481 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.attn.v.bias
+        , %para482 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.attn.proj.bias
+        , %para483 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.norm2.gamma
+        , %para484 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.norm2.beta
+        , %para485 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.7.mlp.fc1.bias
+        , %para486 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.7.mlp.fc2.bias
+        , %para487 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.norm1.gamma
+        , %para488 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.norm1.beta
+        , %para489 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.attn.q.bias
+        , %para490 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.attn.k.bias
+        , %para491 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.attn.v.bias
+        , %para492 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.attn.proj.bias
+        , %para493 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.norm2.gamma
+        , %para494 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.norm2.beta
+        , %para495 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.8.mlp.fc1.bias
+        , %para496 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.8.mlp.fc2.bias
+        , %para497 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.norm1.gamma
+        , %para498 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.norm1.beta
+        , %para499 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.attn.q.bias
+        , %para500 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.attn.k.bias
+        , %para501 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.attn.v.bias
+        , %para502 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.attn.proj.bias
+        , %para503 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.norm2.gamma
+        , %para504 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.norm2.beta
+        , %para505 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.9.mlp.fc1.bias
+        , %para506 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.9.mlp.fc2.bias
+        , %para507 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.norm1.gamma
+        , %para508 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.norm1.beta
+        , %para509 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.attn.q.bias
+        , %para510 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.attn.k.bias
+        , %para511 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.attn.v.bias
+        , %para512 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.attn.proj.bias
+        , %para513 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.norm2.gamma
+        , %para514 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.norm2.beta
+        , %para515 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.10.mlp.fc1.bias
+        , %para516 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.10.mlp.fc2.bias
+        , %para517 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.norm1.gamma
+        , %para518 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.norm1.beta
+        , %para519 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.attn.q.bias
+        , %para520 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.attn.k.bias
+        , %para521 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.attn.v.bias
+        , %para522 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.attn.proj.bias
+        , %para523 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.norm2.gamma
+        , %para524 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.norm2.beta
+        , %para525 : Ref[Tensor(F32)][256]    # adam_v.model.blocks.11.mlp.fc1.bias
+        , %para526 : Ref[Tensor(F32)][64]    # adam_v.model.blocks.11.mlp.fc2.bias
+        , %para527 : Ref[Tensor(F32)][64]    # adam_v.model.norm.gamma
+        , %para528 : Ref[Tensor(F32)][64]    # adam_v.model.norm.beta
+        , %para529 : Ref[Tensor(F32)][200]    # adam_v.model.head.bias
+        , %para530 : Ref[Tensor(F32)][64, 3, 16, 16]    # adam_v.model.patch_embed.proj.weight
+        , %para531 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.0.attn.q.weight
+        , %para532 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.0.attn.k.weight
+        , %para533 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.0.attn.v.weight
+        , %para534 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.0.attn.proj.weight
+        , %para535 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.0.mlp.fc1.weight
+        , %para536 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.0.mlp.fc2.weight
+        , %para537 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.1.attn.q.weight
+        , %para538 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.1.attn.k.weight
+        , %para539 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.1.attn.v.weight
+        , %para540 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.1.attn.proj.weight
+        , %para541 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.1.mlp.fc1.weight
+        , %para542 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.1.mlp.fc2.weight
+        , %para543 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.2.attn.q.weight
+        , %para544 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.2.attn.k.weight
+        , %para545 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.2.attn.v.weight
+        , %para546 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.2.attn.proj.weight
+        , %para547 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.2.mlp.fc1.weight
+        , %para548 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.2.mlp.fc2.weight
+        , %para549 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.3.attn.q.weight
+        , %para550 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.3.attn.k.weight
+        , %para551 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.3.attn.v.weight
+        , %para552 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.3.attn.proj.weight
+        , %para553 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.3.mlp.fc1.weight
+        , %para554 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.3.mlp.fc2.weight
+        , %para555 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.4.attn.q.weight
+        , %para556 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.4.attn.k.weight
+        , %para557 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.4.attn.v.weight
+        , %para558 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.4.attn.proj.weight
+        , %para559 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.4.mlp.fc1.weight
+        , %para560 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.4.mlp.fc2.weight
+        , %para561 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.5.attn.q.weight
+        , %para562 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.5.attn.k.weight
+        , %para563 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.5.attn.v.weight
+        , %para564 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.5.attn.proj.weight
+        , %para565 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.5.mlp.fc1.weight
+        , %para566 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.5.mlp.fc2.weight
+        , %para567 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.6.attn.q.weight
+        , %para568 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.6.attn.k.weight
+        , %para569 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.6.attn.v.weight
+        , %para570 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.6.attn.proj.weight
+        , %para571 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.6.mlp.fc1.weight
+        , %para572 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.6.mlp.fc2.weight
+        , %para573 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.7.attn.q.weight
+        , %para574 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.7.attn.k.weight
+        , %para575 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.7.attn.v.weight
+        , %para576 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.7.attn.proj.weight
+        , %para577 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.7.mlp.fc1.weight
+        , %para578 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.7.mlp.fc2.weight
+        , %para579 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.8.attn.q.weight
+        , %para580 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.8.attn.k.weight
+        , %para581 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.8.attn.v.weight
+        , %para582 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.8.attn.proj.weight
+        , %para583 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.8.mlp.fc1.weight
+        , %para584 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.8.mlp.fc2.weight
+        , %para585 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.9.attn.q.weight
+        , %para586 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.9.attn.k.weight
+        , %para587 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.9.attn.v.weight
+        , %para588 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.9.attn.proj.weight
+        , %para589 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.9.mlp.fc1.weight
+        , %para590 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.9.mlp.fc2.weight
+        , %para591 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.10.attn.q.weight
+        , %para592 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.10.attn.k.weight
+        , %para593 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.10.attn.v.weight
+        , %para594 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.10.attn.proj.weight
+        , %para595 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.10.mlp.fc1.weight
+        , %para596 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.10.mlp.fc2.weight
+        , %para597 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.11.attn.q.weight
+        , %para598 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.11.attn.k.weight
+        , %para599 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.11.attn.v.weight
+        , %para600 : Ref[Tensor(F32)][64, 64]    # adam_v.model.blocks.11.attn.proj.weight
+        , %para601 : Ref[Tensor(F32)][256, 64]    # adam_v.model.blocks.11.mlp.fc1.weight
+        , %para602 : Ref[Tensor(F32)][64, 256]    # adam_v.model.blocks.11.mlp.fc2.weight
+        , %para603 : Ref[Tensor(F32)][200, 64]    # adam_v.model.head.weight
+        , %para604 : Ref[Tensor(F32)][242110]    # learning_rate
+        , %para605 : Ref[Tensor(I32)][1]    # global_step
+    ) {
+
+#------------------------> 0
+    %1 = FuncGraph::fg_15()    # fg_15=Default.15 #scope: Default
+#[CNode]36
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:107/        return self.network(*outputs)/#[CNode]37
+}
+# order:
+#   1: @Default_wrapper.1:[CNode]36{[0]: ValueNode<FuncGraph> Default.15}
+#   2: @Default_wrapper.1:[CNode]37{[0]: ValueNode<Primitive> Return, [1]: [CNode]36}
+
+
+# [No.2] Default.15
+# In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:105/    def construct(self):/
+funcgraph fg_15[fg_1](
+) {
+    %1 : Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)) = DoSignaturePrimitive::S-Prim-GetNext{prim_type=1}[output_num=I64(2), shapes=[[I64(128), I64(3), I64(64), I64(64)], [I64(128), I64(200)]], shared_name="afe478ca-8086-11ed-88fa-b42e99121c64", types=[F32, F32]]() #scope: Default
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:106/        outputs = self.get_next()/#outputs
+
+#------------------------> 1
+    %2 = UnpackCall::unpack_call(FuncGraph::fg_38, %1)    #(FuncNoShape, Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)))    # fg_38=TrainOneStepWithEMA.38 #scope: Default
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:107/        return self.network(*outputs)/#[CNode]39
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:107/        return self.network(*outputs)/#[CNode]40
+}
+# order:
+#   1: @Default.15:outputs{[0]: ValueNode<DoSignaturePrimitive> S-Prim-GetNext}
+#   2: @Default.15:[CNode]39{[0]: ValueNode<UnpackCall> unpack_call.41, [1]: ValueNode<FuncGraph> TrainOneStepWithEMA.38, [2]: outputs}
+#   3: @Default.15:[CNode]40{[0]: ValueNode<Primitive> Return, [1]: [CNode]39}
+
+
+# [No.3] UnpackCall.16
+
+funcgraph fg_16(
+        %para606 : FuncNoShape    # 17
+        , %para607 : Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200))    # 18
+    ) {
+    %1 : Tensor(F32)[128, 3, 64, 64] = Primitive::TupleGetItem{prim_type=1}(%para607, I64(0))    #(Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), I64NoShape) #scope: Default
+#42
+    %2 : Tensor(F32)[128, 200] = Primitive::TupleGetItem{prim_type=1}(%para607, I64(1))    #(Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), I64NoShape) #scope: Default
+#43
+
+#------------------------> 2
+    %3 = %para606(%1, %2)    #(Tensor(F32)[128, 3, 64, 64], Tensor(F32)[128, 200]) #scope: Default
+#44
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default
+#45
+}
+# order:
+#   1: @UnpackCall.16:44{[0]: 17, [1]: 42, [2]: 43}
+#   2: @UnpackCall.16:45{[0]: ValueNode<Primitive> Return, [1]: 44}
+
+
+# [No.4] TrainOneStepWithEMA.19
+# In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:56/    def construct(self, *inputs):/
+funcgraph fg_19[fg_1](
+        %para608 : Tensor(F32)[128, 3, 64, 64]    # inputs0
+        , %para609 : Tensor(F32)[128, 200]    # inputs1
+    ) {
+    %1 : Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)) = Primitive::MakeTuple{prim_type=1}(%para608, %para609)    #(Tensor(F32)[128, 3, 64, 64], Tensor(F32)[128, 200]) #scope: Default
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:56/    def construct(self, *inputs):/#[CNode]46
+
+#------------------------> 3
+    %2 = UnpackCall::unpack_call(FuncGraph::fg_23, %1)    #(FuncNoShape, Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)))    # fg_23=NetWithLoss.23 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:77/            loss = F.depend(loss, self.optimizer(grads))/#фloss
+    %3 = FuncGraph::fg_47(%2, %para1)    #(Undefined, Ref[Tensor(F32)][])    # fg_47=start_overflow_check.47 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:62/        status, scaling_sens = self.start_overflow_check(loss, scaling_sens)/#[CNode]48
+    %4 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, I64(0))    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:62/        status, scaling_sens = self.start_overflow_check(loss, scaling_sens)/#status
+    %5 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, I64(1))    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:62/        status, scaling_sens = self.start_overflow_check(loss, scaling_sens)/#scaling_sens
+    %6 = DoSignaturePrimitive::S-Prim-Partial{prim_type=1}[side_effect_propagate=I64(1)](DoSignaturePrimitive::S-Prim-grad_scale{prim_type=1}, %5)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:66/        grads = self.hyper_map(F.partial(_grad_scale, scaling_sens), grads)/#[CNode]49
+    %7 = DoSignaturePrimitive::S-Prim-hyper_map[ones_like_leaf]{prim_type=1}(%2)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:64/        scaling_sens_filled = C.ones_like(loss) * F.cast(scaling_sens, F.dtype(loss))/#[CNode]50
+    %8 = DoSignaturePrimitive::S-Prim-DType{prim_type=1}(%2)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:64/        scaling_sens_filled = C.ones_like(loss) * F.cast(scaling_sens, F.dtype(loss))/#[CNode]51
+    %9 = DoSignaturePrimitive::S-Prim-Cast{prim_type=1}[output_names=["output"], input_names=["x", "dst_type"], SrcT=F32, DstT=F16, dst_type=F16](%5, %8)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:64/        scaling_sens_filled = C.ones_like(loss) * F.cast(scaling_sens, F.dtype(loss))/#[CNode]52
+    %10 = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(%7, %9)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:64/        scaling_sens_filled = C.ones_like(loss) * F.cast(scaling_sens, F.dtype(loss))/#scaling_sens_filled
+    %11 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%10)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:65/        grads = self.grad(self.network, weights)(*inputs, scaling_sens_filled)/#[CNode]53
+    %12 = UnpackGraphPrimitive::UnpackGraph{prim_type=1}(FuncGraph::fg_23, %1, %11)    #(Undefined, Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), Undefined)    # fg_23=NetWithLoss.23 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:65/        grads = self.grad(self.network, weights)(*inputs, scaling_sens_filled)/#grads
+    %13 = Primitive::MakeTuple{prim_type=1}(%para2, %para3, %para4, %para5, %para6, %para7, %para8, %para9, %para10, %para11, %para12, %para13, %para14, %para15, %para16, %para17, %para18, %para19, %para20, %para21, %para22, %para23, %para24, %para25, %para26, %para27, %para28, %para29, %para30, %para31, %para32, %para33, %para34, %para35, %para36, %para37, %para38, %para39, %para40, %para41, %para42, %para43, %para44, %para45, %para46, %para47, %para48, %para49, %para50, %para51, %para52, %para53, %para54, %para55, %para56, %para57, %para58, %para59, %para60, %para61, %para62, %para63, %para64, %para65, %para66, %para67, %para68, %para69, %para70, %para71, %para72, %para73, %para74, %para75, %para76, %para77, %para78, %para79, %para80, %para81, %para82, %para83, %para84, %para85, %para86, %para87, %para88, %para89, %para90, %para91, %para92, %para93, %para94, %para95, %para96, %para97, %para98, %para99, %para100, %para101, %para102, %para103, %para104, %para105, %para106, %para107, %para108, %para109, %para110, %para111, %para112, %para113, %para114, %para115, %para116, %para117, %para118, %para119, %para120, %para121, %para122, %para123, %para124, %para125, %para126, %para127, %para128, %para129, %para130, %para131, %para132, %para133, %para134, %para135, %para136, %para137, %para138, %para139, %para140, %para141, %para142, %para143, %para144, %para145, %para146, %para147, %para148, %para149, %para150, %para151, %para152, %para153, %para154, %para155, %para156, %para157, %para158, %para159, %para160, %para161, %para162, %para163, %para164, %para165, %para166, %para167, %para168, %para169, %para170, %para171, %para172, %para173, %para174, %para175, %para176, %para177, %para178, %para179, %para180, %para181, %para182, %para183, %para184, %para185, %para186, %para187, %para188, %para189, %para190, %para191, %para192, %para193, %para194, %para195, %para196, %para197, %para198, %para199, %para200, %para201)    #(Ref[Tensor(F32)][1, 1, 64], Ref[Tensor(F32)][1, 17, 64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][256], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][200], Ref[Tensor(F32)][64, 3, 16, 16], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][64, 64], Ref[Tensor(F32)][256, 64], Ref[Tensor(F32)][64, 256], Ref[Tensor(F32)][200, 64]) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:79/                self.ema_model(self.weights)/#[CNode]54
+    %14 = DoSignaturePrimitive::S-Prim-grad{prim_type=1}(%12, %13)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:65/        grads = self.grad(self.network, weights)(*inputs, scaling_sens_filled)/#grads
+    %15 = UnpackCall::unpack_call(%14, %1, %11)    #(Undefined, Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:65/        grads = self.grad(self.network, weights)(*inputs, scaling_sens_filled)/#grads
+    %16 = DoSignaturePrimitive::S-Prim-hyper_map{prim_type=1}(%6, %15)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:66/        grads = self.hyper_map(F.partial(_grad_scale, scaling_sens), grads)/#grads
+    %17 = DoSignaturePrimitive::S-Prim-identity{prim_type=1}[side_effect_propagate=I64(1)](%16)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:68/        grads = self.grad_reducer(grads)/#grads
+    %18 = FuncGraph::fg_55(%4, %17)    #(Undefined, Undefined)    # fg_55=get_overflow_status.55 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:70/        cond = self.get_overflow_status(status, grads)/#cond
+    %19 = FuncGraph::fg_56(%18)    #(Undefined)    # fg_56=process_loss_scale.56 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:71/        overflow = self.process_loss_scale(cond)/#overflow
+    %20 = DoSignaturePrimitive::S-Prim-logical_not{prim_type=1}(%19)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:73/        if not overflow:/#[CNode]57
+    %21 = FuncGraph::fg_58(%20)    #(Undefined)    # fg_58=bool_.58 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:73/        if not overflow:/#[CNode]59
+    %22 = Primitive::Switch{prim_type=1}(%21, FuncGraph::fg_60, FuncGraph::fg_61)    #(Undefined, Undefined, Undefined)    # fg_60=✓TrainOneStepWithEMA.60, fg_61=✗TrainOneStepWithEMA.61 #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:73/        if not overflow:/#[CNode]62
+    %23 = %22() #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:73/        if not overflow:/#[CNode]63
+    %24 = FuncGraph::fg_64(%23)    #(Undefined)    # fg_64=↓TrainOneStepWithEMA.64 #scope: Default
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/train/dataset_helper.py:107/        return self.network(*outputs)/#[CNode]65
+    Primitive::Return{prim_type=1}(%24)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+      # In file /home/mindspore/ms-deit/src/trainer/train_one_step_with_ema.py:73/        if not overflow:/#[CNode]66
+}
+# order:
+#   1: @TrainOneStepWithEMA.19:фloss{[0]: ValueNode<UnpackCall> unpack_call.67, [1]: ValueNode<FuncGraph> NetWithLoss.23, [2]: [CNode]46}
+#   2: @TrainOneStepWithEMA.19:[CNode]48{[0]: ValueNode<FuncGraph> start_overflow_check.47, [1]: фloss, [2]: scale_sense}
+#   3: @TrainOneStepWithEMA.19:status{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]48, [2]: ValueNode<Int64Imm> 0}
+#   4: @TrainOneStepWithEMA.19:scaling_sens{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]48, [2]: ValueNode<Int64Imm> 1}
+#   5: @TrainOneStepWithEMA.19:[CNode]50{[0]: ValueNode<DoSignaturePrimitive> S-Prim-hyper_map[ones_like_leaf], [1]: фloss}
+#   6: @TrainOneStepWithEMA.19:[CNode]51{[0]: ValueNode<DoSignaturePrimitive> S-Prim-DType, [1]: фloss}
+#   7: @TrainOneStepWithEMA.19:[CNode]52{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Cast, [1]: scaling_sens, [2]: [CNode]51}
+#   8: @TrainOneStepWithEMA.19:scaling_sens_filled{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: [CNode]50, [2]: [CNode]52}
+#   9: @TrainOneStepWithEMA.19:[CNode]53{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: scaling_sens_filled}
+#  10: @TrainOneStepWithEMA.19:grads{[0]: ValueNode<UnpackGraphPrimitive> UnpackGraph, [1]: ValueNode<FuncGraph> NetWithLoss.23, [2]: [CNode]46, [3]: [CNode]53}
+#  11: @TrainOneStepWithEMA.19:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-grad, [1]: grads, [2]: [CNode]54}
+#  12: @TrainOneStepWithEMA.19:grads{[0]: ValueNode<UnpackCall> unpack_call.68, [1]: grads, [2]: [CNode]46, [3]: [CNode]53}
+#  13: @TrainOneStepWithEMA.19:[CNode]49{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Partial, [1]: ValueNode<DoSignaturePrimitive> S-Prim-grad_scale, [2]: scaling_sens}
+#  14: @TrainOneStepWithEMA.19:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-hyper_map, [1]: [CNode]49, [2]: grads}
+#  15: @TrainOneStepWithEMA.19:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-identity, [1]: grads}
+#  16: @TrainOneStepWithEMA.19:cond{[0]: ValueNode<FuncGraph> get_overflow_status.55, [1]: status, [2]: grads}
+#  17: @TrainOneStepWithEMA.19:overflow{[0]: ValueNode<FuncGraph> process_loss_scale.56, [1]: cond}
+#  18: @TrainOneStepWithEMA.19:[CNode]57{[0]: ValueNode<DoSignaturePrimitive> S-Prim-logical_not, [1]: overflow}
+#  19: @TrainOneStepWithEMA.19:[CNode]59{[0]: ValueNode<FuncGraph> bool_.58, [1]: [CNode]57}
+#  20: @TrainOneStepWithEMA.19:фself.ema_model{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> ClassMember: 'Namespace:src.trainer.train_one_step_with_ema..<TrainOneStepWithEMA::140058951048080>', [2]: ValueNode<Symbol> ema_model}
+#  21: @TrainOneStepWithEMA.19:[CNode]62{[0]: ValueNode<Primitive> Switch, [1]: [CNode]59, [2]: ValueNode<FuncGraph> ✓TrainOneStepWithEMA.60, [3]: ValueNode<FuncGraph> ✗TrainOneStepWithEMA.61}
+#  22: @TrainOneStepWithEMA.19:[CNode]63{[0]: [CNode]62}
+#  23: @TrainOneStepWithEMA.19:[CNode]65{[0]: ValueNode<FuncGraph> ↓TrainOneStepWithEMA.64, [1]: [CNode]63}
+#  24: @TrainOneStepWithEMA.19:[CNode]66{[0]: ValueNode<Primitive> Return, [1]: [CNode]65}
+
+
+# [No.5] UnpackCall.20
+
+funcgraph fg_20(
+        %para610 : FuncNoShape    # 21
+        , %para611 : Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200))    # 22
+    ) {
+    %1 : Tensor(F32)[128, 3, 64, 64] = Primitive::TupleGetItem{prim_type=1}(%para611, I64(0))    #(Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), I64NoShape) #scope: Default/network-TrainOneStepWithEMA
+#69
+    %2 : Tensor(F32)[128, 200] = Primitive::TupleGetItem{prim_type=1}(%para611, I64(1))    #(Tuple[Tensor(F32)*2]TupleShape((128, 3, 64, 64), (128, 200)), I64NoShape) #scope: Default/network-TrainOneStepWithEMA
+#70
+
+#------------------------> 4
+    %3 = %para610(%1, %2)    #(Tensor(F32)[128, 3, 64, 64], Tensor(F32)[128, 200]) #scope: Default/network-TrainOneStepWithEMA
+#71
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA
+#72
+}
+# order:
+#   1: @UnpackCall.20:71{[0]: 21, [1]: 69, [2]: 70}
+#   2: @UnpackCall.20:72{[0]: ValueNode<Primitive> Return, [1]: 71}
+
+
+# [No.6] NetWithLoss.23
+# In file /home/mindspore/ms-deit/src/tools/criterion.py:92/    def construct(self, data, label):/
+funcgraph fg_23[fg_1](
+        %para612 : Tensor(F32)[128, 3, 64, 64]    # data
+        , %para613 : Tensor(F32)[128, 200]    # label
+    ) {
+
+#------------------------> 5
+    %1 = FuncGraph::fg_24(%para612)    #(Tensor(F32)[128, 3, 64, 64])    # fg_24=VisionTransformer.24 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss
+      # In file /home/mindspore/ms-deit/src/tools/criterion.py:93/        predict = self.model(data)/#predict
+    %2 = FuncGraph::fg_73(%1, %para613)    #(Undefined, Tensor(F32)[128, 200])    # fg_73=SoftTargetCrossEntropy.73 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss
+      # In file /home/mindspore/ms-deit/src/tools/criterion.py:94/        loss = self.criterion(predict, label)/#loss
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss
+      # In file /home/mindspore/ms-deit/src/tools/criterion.py:95/        return loss/#[CNode]74
+}
+# order:
+#   1: @NetWithLoss.23:predict{[0]: ValueNode<FuncGraph> VisionTransformer.24, [1]: data}
+#   2: @NetWithLoss.23:loss{[0]: ValueNode<FuncGraph> SoftTargetCrossEntropy.73, [1]: predict, [2]: label}
+#   3: @NetWithLoss.23:[CNode]74{[0]: ValueNode<Primitive> Return, [1]: loss}
+
+
+# [No.7] VisionTransformer.24
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:252/    def construct(self, x):/
+funcgraph fg_24[fg_1](
+        %para614 : Tensor(F32)[128, 3, 64, 64]    # x
+    ) {
+    %1 : BoolNoShape = DoSignaturePrimitive::S-Prim-is_not{prim_type=1}(None, None)    #(NoneTypeNoShape, NoneTypeNoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]75
+    %2 : BoolNoShape = FuncGraph::fg_58(%1)    #(BoolNoShape)    # fg_58=bool_.58 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]76
+    %3 : FuncNoShape = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_77, FuncGraph::fg_25)    #(BoolNoShape, FuncNoShape, FuncNoShape)    # fg_77=✓VisionTransformer.77, fg_25=✗VisionTransformer.25 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]78
+
+#------------------------> 6
+    %4 = %3() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]79
+    Primitive::Return{prim_type=1}(%4)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]80
+}
+# order:
+#   1: @VisionTransformer.24:[CNode]81{[0]: ValueNode<Primitive> MixedPrecisionCast, [1]: ValueNode<Float> Float16, [2]: x}
+#   2: @VisionTransformer.24:x{[0]: ValueNode<FuncGraph> construct_features.27, [1]: [CNode]81}
+#   3: @VisionTransformer.24:[CNode]75{[0]: ValueNode<DoSignaturePrimitive> S-Prim-is_not, [1]: ValueNode<None> None, [2]: ValueNode<None> None}
+#   4: @VisionTransformer.24:[CNode]76{[0]: ValueNode<FuncGraph> bool_.58, [1]: [CNode]75}
+#   5: @VisionTransformer.24:[CNode]78{[0]: ValueNode<Primitive> Switch, [1]: [CNode]76, [2]: ValueNode<FuncGraph> ✓VisionTransformer.77, [3]: ValueNode<FuncGraph> ✗VisionTransformer.25}
+#   6: @VisionTransformer.24:[CNode]79{[0]: [CNode]78}
+#   7: @VisionTransformer.24:[CNode]80{[0]: ValueNode<Primitive> Return, [1]: [CNode]79}
+
+
+# [No.8] ✗VisionTransformer.25
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/
+funcgraph fg_25[fg_24](
+) {
+
+#------------------------> 7
+    %1 = FuncGraph::fg_26()    # fg_26=↓VisionTransformer.26 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]82
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/#[CNode]83
+}
+# order:
+#   1: @✗VisionTransformer.25:[CNode]82{[0]: ValueNode<FuncGraph> ↓VisionTransformer.26}
+#   2: @✗VisionTransformer.25:[CNode]83{[0]: ValueNode<Primitive> Return, [1]: [CNode]82}
+
+
+# [No.9] ↓VisionTransformer.26
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:254/        if self.head_dist is not None:/
+funcgraph fg_26[fg_24](
+) {
+    %1 : $(VisionTransformer.24):Tensor(F16)[128, 3, 64, 64] = Primitive::MixedPrecisionCast{prim_type=1}(F16, %para614)    #(TypeTypeNoShape, Tensor(F32)[128, 3, 64, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:252/    def construct(self, x):/#[CNode]81
+
+#------------------------> 8
+    %2 = $(VisionTransformer.24):FuncGraph::fg_27(%1)    #(Tensor(F16)[128, 3, 64, 64])    # fg_27=construct_features.27 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:253/        x = self.construct_features(x)/#x
+    %3 = FuncGraph::fg_84(%2)    #(Undefined)    # fg_84=Dense.84 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:260/        x = self.head(x)/#x
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:261/        return x/#[CNode]85
+}
+# order:
+#   1: @↓VisionTransformer.26:x{[0]: ValueNode<FuncGraph> Dense.84, [1]: x}
+#   2: @↓VisionTransformer.26:[CNode]85{[0]: ValueNode<Primitive> Return, [1]: x}
+
+
+# [No.10] construct_features.27
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:237/    def construct_features(self, x):/
+funcgraph fg_27[fg_1](
+        %para615 : Tensor(F16)[128, 3, 64, 64]    # x
+    ) {
+    %1 : BoolNoShape = DoSignaturePrimitive::S-Prim-is_{prim_type=1}(None, None)    #(NoneTypeNoShape, NoneTypeNoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/#[CNode]86
+    %2 : BoolNoShape = FuncGraph::fg_58(%1)    #(BoolNoShape)    # fg_58=bool_.58 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/#[CNode]87
+    %3 : FuncNoShape = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_88, FuncGraph::fg_89)    #(BoolNoShape, FuncNoShape, FuncNoShape)    # fg_88=✓construct_features.88, fg_89=✗construct_features.89 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/#[CNode]90
+    %4 : Tensor(F16)[128, 17, 64] = %3() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/#[CNode]91
+
+#------------------------> 9
+    %5 = FuncGraph::fg_28(%4)    #(Tensor(F16)[128, 17, 64])    # fg_28=↓construct_features.28 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:253/        x = self.construct_features(x)/#[CNode]92
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/#[CNode]93
+}
+# order:
+#   1: @construct_features.27:cls_tokens{[0]: ValueNode<PrimitivePy> Cast, [1]: model.cls_token, [2]: ValueNode<Float> Float16}
+#   2: @construct_features.27:[CNode]94{[0]: ValueNode<Primitive> MixedPrecisionCast, [1]: ValueNode<Float> Float16, [2]: x}
+#   3: @construct_features.27:x{[0]: ValueNode<FuncGraph> PatchEmbed.95, [1]: [CNode]94}
+#   4: @construct_features.27:[CNode]96{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Tile'}
+#   5: @construct_features.27:[CNode]97{[0]: ValueNode<Primitive> getattr, [1]: x, [2]: ValueNode<StringImm> shape}
+#   6: @construct_features.27:[CNode]98{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]97, [2]: ValueNode<Int64Imm> 0}
+#   7: @construct_features.27:[CNode]99{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]98, [2]: ValueNode<Int64Imm> 1, [3]: ValueNode<Int64Imm> 1}
+#   8: @construct_features.27:cls_tokens{[0]: [CNode]96, [1]: model.cls_token, [2]: [CNode]99}
+#   9: @construct_features.27:[CNode]86{[0]: ValueNode<DoSignaturePrimitive> S-Prim-is_, [1]: ValueNode<None> None, [2]: ValueNode<None> None}
+#  10: @construct_features.27:[CNode]87{[0]: ValueNode<FuncGraph> bool_.58, [1]: [CNode]86}
+#  11: @construct_features.27:[CNode]90{[0]: ValueNode<Primitive> Switch, [1]: [CNode]87, [2]: ValueNode<FuncGraph> ✓construct_features.88, [3]: ValueNode<FuncGraph> ✗construct_features.89}
+#  12: @construct_features.27:[CNode]91{[0]: [CNode]90}
+#  13: @construct_features.27:[CNode]92{[0]: ValueNode<FuncGraph> ↓construct_features.28, [1]: [CNode]91}
+#  14: @construct_features.27:[CNode]93{[0]: ValueNode<Primitive> Return, [1]: [CNode]92}
+
+
+# [No.11] ↓construct_features.28
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:240/        if self.dist_token is None:/
+funcgraph fg_28[fg_1](
+        %para616 : Tensor(F16)[128, 17, 64]    # фx
+    ) {
+    %1 : BoolNoShape = DoSignaturePrimitive::S-Prim-is_{prim_type=1}(None, None)    #(NoneTypeNoShape, NoneTypeNoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/#[CNode]100
+    %2 : BoolNoShape = FuncGraph::fg_58(%1)    #(BoolNoShape)    # fg_58=bool_.58 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/#[CNode]101
+    %3 : FuncNoShape = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_29, FuncGraph::fg_102)    #(BoolNoShape, FuncNoShape, FuncNoShape)    # fg_29=✓↓construct_features.29, fg_102=✗↓construct_features.102 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/#[CNode]103
+
+#------------------------> 10
+    %4 = %3() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/#[CNode]104
+    Primitive::Return{prim_type=1}(%4)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/#[CNode]105
+}
+# order:
+#   1: @↓construct_features.28:[CNode]106{[0]: ValueNode<PrimitivePy> Cast, [1]: model.pos_embed, [2]: ValueNode<Float> Float16}
+#   2: @↓construct_features.28:[CNode]106{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: фx, [2]: model.pos_embed}
+#   3: @↓construct_features.28:x{[0]: ValueNode<FuncGraph> Dropout.107, [1]: [CNode]106}
+#   4: @↓construct_features.28:x{[0]: ValueNode<FuncGraph> SequentialCell.30, [1]: x}
+#   5: @↓construct_features.28:x{[0]: ValueNode<FuncGraph> LayerNorm.108, [1]: x}
+#   6: @↓construct_features.28:[CNode]100{[0]: ValueNode<DoSignaturePrimitive> S-Prim-is_, [1]: ValueNode<None> None, [2]: ValueNode<None> None}
+#   7: @↓construct_features.28:[CNode]101{[0]: ValueNode<FuncGraph> bool_.58, [1]: [CNode]100}
+#   8: @↓construct_features.28:[CNode]103{[0]: ValueNode<Primitive> Switch, [1]: [CNode]101, [2]: ValueNode<FuncGraph> ✓↓construct_features.29, [3]: ValueNode<FuncGraph> ✗↓construct_features.102}
+#   9: @↓construct_features.28:[CNode]104{[0]: [CNode]103}
+#  10: @↓construct_features.28:[CNode]105{[0]: ValueNode<Primitive> Return, [1]: [CNode]104}
+
+
+# [No.12] ✓↓construct_features.29
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:248/        if self.dist_token is None:/
+funcgraph fg_29[fg_28](
+) {
+    %1 : $(↓construct_features.28):Tensor(F16)[128, 17, 64] = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%para616, %para3)    #(Tensor(F16)[128, 17, 64], Ref[Tensor(F32)][1, 17, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:245/        x = self.pos_drop(x + self.pos_embed)/#[CNode]106
+    %2 : $(↓construct_features.28):Tensor(F16)[128, 17, 64] = FuncGraph::fg_107(%1)    #(Tensor(F16)[128, 17, 64])    # fg_107=Dropout.107 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:245/        x = self.pos_drop(x + self.pos_embed)/#x
+
+#------------------------> 11
+    %3 = $(↓construct_features.28):FuncGraph::fg_30(%2)    #(Tensor(F16)[128, 17, 64])    # fg_30=SequentialCell.30 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:246/        x = self.blocks(x)/#x
+    %4 = $(↓construct_features.28):FuncGraph::fg_108(%3)    #(Undefined)    # fg_108=LayerNorm.108 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:247/        x = self.norm(x)/#x
+    %5 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:249/            return self.pre_logits(x[:, 0])/#[CNode]109
+    %6 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%5, I64(0))    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:249/            return self.pre_logits(x[:, 0])/#[CNode]110
+    %7 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%4, %6)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:249/            return self.pre_logits(x[:, 0])/#[CNode]111
+    %8 = FuncGraph::fg_112(%7)    #(Undefined)    # fg_112=Identity.112 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:249/            return self.pre_logits(x[:, 0])/#[CNode]113
+    Primitive::Return{prim_type=1}(%8)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:249/            return self.pre_logits(x[:, 0])/#[CNode]114
+}
+# order:
+#   1: @✓↓construct_features.29:[CNode]109{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#   2: @✓↓construct_features.29:[CNode]110{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]109, [2]: ValueNode<Int64Imm> 0}
+#   3: @✓↓construct_features.29:[CNode]111{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: x, [2]: [CNode]110}
+#   4: @✓↓construct_features.29:[CNode]113{[0]: ValueNode<FuncGraph> Identity.112, [1]: [CNode]111}
+#   5: @✓↓construct_features.29:[CNode]114{[0]: ValueNode<Primitive> Return, [1]: [CNode]113}
+
+
+# [No.13] SequentialCell.30
+# In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:277/    def construct(self, input_data):/
+funcgraph fg_30[fg_1](
+        %para617 : Tensor(F16)[128, 17, 64]    # input_data
+    ) {
+    %1 : Tensor(F16)[128, 17, 64] = Primitive::MixedPrecisionCast{prim_type=1}(F16, %para617)    #(TypeTypeNoShape, Tensor(F16)[128, 17, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:277/    def construct(self, input_data):/#[CNode]115
+
+#------------------------> 12
+    %2 = FuncGraph::fg_31(I64(0), %1)    #(I64NoShape, Tensor(F16)[128, 17, 64])    # fg_31=↵SequentialCell.31 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]116
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]117
+}
+# order:
+#   1: @SequentialCell.30:[CNode]115{[0]: ValueNode<Primitive> MixedPrecisionCast, [1]: ValueNode<Float> Float16, [2]: input_data}
+#   2: @SequentialCell.30:[CNode]118{[0]: ValueNode<FuncGraph> ms_len.119, [1]: [CNode]120}
+#   3: @SequentialCell.30:[CNode]116{[0]: ValueNode<FuncGraph> ↵SequentialCell.31, [1]: ValueNode<Int64Imm> 0, [2]: [CNode]115}
+#   4: @SequentialCell.30:[CNode]117{[0]: ValueNode<Primitive> Return, [1]: [CNode]116}
+
+
+# [No.14] ↵SequentialCell.31
+# In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/
+funcgraph fg_31[fg_30](
+        %para618 : I64NoShape    # @[CNode]32
+        , %para619 : Tensor(F16)[128, 17, 64]    # фinput_data
+    ) {
+    %1 : $(SequentialCell.30):Tuple[Func*12]TupleShape(NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape) = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_34, FuncGraph::fg_121, FuncGraph::fg_122, FuncGraph::fg_123, FuncGraph::fg_124, FuncGraph::fg_125, FuncGraph::fg_126, FuncGraph::fg_127, FuncGraph::fg_128, FuncGraph::fg_129, FuncGraph::fg_130, FuncGraph::fg_131)    #(FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape)    # fg_34=Block.34, fg_121=Block.121, fg_122=Block.122, fg_123=Block.123, fg_124=Block.124, fg_125=Block.125, fg_126=Block.126, fg_127=Block.127, fg_128=Block.128, fg_129=Block.129, fg_130=Block.130, fg_131=Block.131 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]120
+    %2 : $(SequentialCell.30):I64NoShape = FuncGraph::fg_119(%1)    #(Tuple[Func*12]TupleShape(NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape))    # fg_119=ms_len.119 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]118
+    %3 : BoolNoShape = MultitypeFuncGraph::less{(Tensor, Tensor), (Number, Tensor), (Number, Number), (Tensor, Number), (String, String)}(%para618, %2)    #(I64NoShape, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]132
+    %4 : FuncNoShape = Primitive::Switch{prim_type=1}(%3, FuncGraph::fg_33, FuncGraph::fg_133)    #(BoolNoShape, FuncNoShape, FuncNoShape)    # fg_33=↻SequentialCell.33, fg_133=↓SequentialCell.133 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]134
+
+#------------------------> 13
+    %5 = %4() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]135
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]136
+}
+# order:
+#   1: @↵SequentialCell.31:[CNode]132{[0]: ValueNode<MultitypeFuncGraph> less.137, [1]: @[CNode]32, [2]: [CNode]118}
+#   2: @↵SequentialCell.31:[CNode]134{[0]: ValueNode<Primitive> Switch, [1]: [CNode]132, [2]: ValueNode<FuncGraph> ↻SequentialCell.33, [3]: ValueNode<FuncGraph> ↓SequentialCell.133}
+#   3: @↵SequentialCell.31:[CNode]135{[0]: [CNode]134}
+#   4: @↵SequentialCell.31:[CNode]136{[0]: ValueNode<Primitive> Return, [1]: [CNode]135}
+
+
+# [No.15] ↻SequentialCell.33
+# In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/
+funcgraph fg_33[fg_31](
+) {
+    %1 : I64NoShape = MultitypeFuncGraph::add{(Tensor, COOTensor), (Tensor, Tuple), (Tuple, Tensor), (Number, Tensor), (String, String), (RowTensor, Tensor), (List, Tensor), (Tensor, List), (List, List), (NoneType, NoneType), (Tensor, Tensor), (CSRTensor, CSRTensor), (Number, Number), (Tensor, Number), (Tuple, Tuple), (COOTensor, Tensor), (COOTensor, COOTensor)}(%para618, I64(1))    #(I64NoShape, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]32
+    %2 : I64NoShape = Primitive::stop_gradient{prim_type=1}(%1)    #(I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:246/        x = self.blocks(x)/#[CNode]138
+    %3 : $(SequentialCell.30):Tuple[Func*12]TupleShape(NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape) = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_34, FuncGraph::fg_121, FuncGraph::fg_122, FuncGraph::fg_123, FuncGraph::fg_124, FuncGraph::fg_125, FuncGraph::fg_126, FuncGraph::fg_127, FuncGraph::fg_128, FuncGraph::fg_129, FuncGraph::fg_130, FuncGraph::fg_131)    #(FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape, FuncNoShape)    # fg_34=Block.34, fg_121=Block.121, fg_122=Block.122, fg_123=Block.123, fg_124=Block.124, fg_125=Block.125, fg_126=Block.126, fg_127=Block.127, fg_128=Block.128, fg_129=Block.129, fg_130=Block.130, fg_131=Block.131 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]120
+    %4 : FuncNoShape = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, %para618)    #(Tuple[Func*12]TupleShape(NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape, NoShape), I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#cell
+
+#------------------------> 14
+    %5 = %4(%para619)    #(Tensor(F16)[128, 17, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:279/            input_data = cell(input_data)/#input_data
+    %6 = FuncGraph::fg_31(%1, %5)    #(I64NoShape, Undefined)    # fg_31=↵SequentialCell.31 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]139
+    %7 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%6, %2)    #(Undefined, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:246/        x = self.blocks(x)/#[CNode]140
+    Primitive::Return{prim_type=1}(%7)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell
+      # In file /usr/local/python-3.7.5/lib/python3.7/site-packages/mindspore/nn/layer/container.py:278/        for cell in self.cell_list:/#[CNode]141
+}
+# order:
+#   1: @↻SequentialCell.33:cell{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]120, [2]: @[CNode]32}
+#   2: @↻SequentialCell.33:[CNode]32{[0]: ValueNode<MultitypeFuncGraph> add.6, [1]: @[CNode]32, [2]: ValueNode<Int64Imm> 1}
+#   3: @↻SequentialCell.33:input_data{[0]: cell, [1]: фinput_data}
+#   4: @↻SequentialCell.33:[CNode]139{[0]: ValueNode<FuncGraph> ↵SequentialCell.31, [1]: [CNode]32, [2]: input_data}
+#   5: @↻SequentialCell.33:[CNode]141{[0]: ValueNode<Primitive> Return, [1]: [CNode]140}
+
+
+# [No.16] Block.34
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:147/    def construct(self, x):/
+funcgraph fg_34[fg_1](
+        %para620 : Tensor(F16)[128, 17, 64]    # x
+    ) {
+    %1 : Tensor(F16)[128, 17, 64] = Primitive::MixedPrecisionCast{prim_type=1}(F16, %para620)    #(TypeTypeNoShape, Tensor(F16)[128, 17, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:147/    def construct(self, x):/#[CNode]142
+    %2 : Tensor(F32)[128, 17, 64] = FuncGraph::fg_143(%1)    #(Tensor(F16)[128, 17, 64])    # fg_143=LayerNorm.143 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:148/        x = x + self.drop_path(self.attn(self.norm1(x)))/#[CNode]144
+
+#------------------------> 15
+    %3 = FuncGraph::fg_35(%2)    #(Tensor(F32)[128, 17, 64])    # fg_35=Attention.35 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:148/        x = x + self.drop_path(self.attn(self.norm1(x)))/#[CNode]145
+    %4 = FuncGraph::fg_146(%3)    #(Undefined)    # fg_146=Identity.146 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:148/        x = x + self.drop_path(self.attn(self.norm1(x)))/#[CNode]147
+    %5 = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%1, %4)    #(Tensor(F16)[128, 17, 64], Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:148/        x = x + self.drop_path(self.attn(self.norm1(x)))/#x
+    %6 = FuncGraph::fg_148(%5)    #(Undefined)    # fg_148=LayerNorm.148 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:149/        x = x + self.drop_path(self.mlp(self.norm2(x)))/#[CNode]149
+    %7 = FuncGraph::fg_150(%6)    #(Undefined)    # fg_150=Mlp.150 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:149/        x = x + self.drop_path(self.mlp(self.norm2(x)))/#[CNode]151
+    %8 = FuncGraph::fg_146(%7)    #(Undefined)    # fg_146=Identity.146 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:149/        x = x + self.drop_path(self.mlp(self.norm2(x)))/#[CNode]152
+    %9 = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%5, %8)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:149/        x = x + self.drop_path(self.mlp(self.norm2(x)))/#x
+    Primitive::Return{prim_type=1}(%9)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:150/        return x/#[CNode]153
+}
+# order:
+#   1: @Block.34:[CNode]142{[0]: ValueNode<Primitive> MixedPrecisionCast, [1]: ValueNode<Float> Float16, [2]: x}
+#   2: @Block.34:[CNode]144{[0]: ValueNode<FuncGraph> LayerNorm.143, [1]: [CNode]142}
+#   3: @Block.34:[CNode]145{[0]: ValueNode<FuncGraph> Attention.35, [1]: [CNode]144}
+#   4: @Block.34:[CNode]147{[0]: ValueNode<FuncGraph> Identity.146, [1]: [CNode]145}
+#   5: @Block.34:x{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: [CNode]142, [2]: [CNode]147}
+#   6: @Block.34:[CNode]149{[0]: ValueNode<FuncGraph> LayerNorm.148, [1]: x}
+#   7: @Block.34:[CNode]151{[0]: ValueNode<FuncGraph> Mlp.150, [1]: [CNode]149}
+#   8: @Block.34:[CNode]152{[0]: ValueNode<FuncGraph> Identity.146, [1]: [CNode]151}
+#   9: @Block.34:x{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: x, [2]: [CNode]152}
+#  10: @Block.34:[CNode]153{[0]: ValueNode<Primitive> Return, [1]: x}
+
+
+# [No.17] Attention.35
+# In file /home/mindspore/ms-deit/src/models/vision_transformer.py:112/    def construct(self, x):/
+funcgraph fg_35[fg_1](
+        %para621 : Tensor(F32)[128, 17, 64]    # x
+    ) {
+    %1 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]154
+    %2 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]155
+    %3 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]156
+    %4 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:124/        attn = ops.BatchMatMul()(q, k)/#[CNode]157
+    %5 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:118/        q = ops.Transpose()(q, (0, 2, 1, 3))/#[CNode]158
+    %6 : FuncNoShape = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#[CNode]159
+    %7 : Tensor(F16)[128, 17, 64] = Primitive::MixedPrecisionCast{prim_type=1}(F16, %para621)    #(TypeTypeNoShape, Tensor(F32)[128, 17, 64]) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:112/    def construct(self, x):/#[CNode]160
+    %8 : Tensor(F16)[128, 17, 64] = FuncGraph::fg_161(%7)    #(Tensor(F16)[128, 17, 64])    # fg_161=Dense.161 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#[CNode]162
+    %9 : Tuple[I64*3]TupleShape(NoShape, NoShape, NoShape) = Primitive::getattr{prim_type=1}(%7, "shape")    #(Tensor(F16)[128, 17, 64], StringNoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:113/        B, N, C = x.shape/#[CNode]163
+    %10 : I64NoShape = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(0))    #(Tuple[I64*3]TupleShape(NoShape, NoShape, NoShape), I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:113/        B, N, C = x.shape/#B
+    %11 : I64NoShape = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(1))    #(Tuple[I64*3]TupleShape(NoShape, NoShape, NoShape), I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:113/        B, N, C = x.shape/#N
+    %12 : I64NoShape = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%9, I64(2))    #(Tuple[I64*3]TupleShape(NoShape, NoShape, NoShape), I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:113/        B, N, C = x.shape/#C
+    %13 : I64NoShape = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%12, I64(6))    #(I64NoShape, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#[CNode]164
+    %14 : Tuple[I64*4]TupleShape(NoShape, NoShape, NoShape, NoShape) = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%10, %11, I64(6), %13)    #(I64NoShape, I64NoShape, I64NoShape, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#[CNode]165
+
+#------------------------> 16
+    %15 = %6(%8, %14)    #(Tensor(F16)[128, 17, 64], Tuple[I64*4]TupleShape(NoShape, NoShape, NoShape, NoShape)) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#[CNode]166
+    %16 = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(%15, F32(0.316228))    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:117/        q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale/#q
+    %17 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(1), I64(3))    #(Undefined, Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:118/        q = ops.Transpose()(q, (0, 2, 1, 3))/#[CNode]167
+    %18 = %5(%16, %17)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:118/        q = ops.Transpose()(q, (0, 2, 1, 3))/#q
+    %19 = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:120/        k = ops.Transpose()(k, (0, 2, 3, 1))/#[CNode]168
+    %20 = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:119/        k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]169
+    %21 = FuncGraph::fg_170(%7)    #(Tensor(F16)[128, 17, 64])    # fg_170=Dense.170 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:119/        k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]171
+    %22 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%12, I64(6))    #(I64NoShape, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:119/        k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]172
+    %23 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%10, %11, I64(6), %22)    #(I64NoShape, I64NoShape, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:119/        k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]173
+    %24 = %20(%21, %23)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:119/        k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))/#k
+    %25 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(3), I64(1))    #(Undefined, Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:120/        k = ops.Transpose()(k, (0, 2, 3, 1))/#[CNode]174
+    %26 = %19(%24, %25)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:120/        k = ops.Transpose()(k, (0, 2, 3, 1))/#k
+    %27 = %4(%18, %26)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:124/        attn = ops.BatchMatMul()(q, k)/#attn
+    %28 = FuncGraph::fg_175(%27)    #(Undefined)    # fg_175=Softmax.175 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:125/        attn = self.softmax(attn)/#attn
+    %29 = FuncGraph::fg_176(%28)    #(Undefined)    # fg_176=Dropout.176 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:126/        attn = self.attn_drop(attn)/#attn
+    %30 = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:122/        v = ops.Transpose()(v, (0, 2, 1, 3))/#[CNode]177
+    %31 = ClassType() #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:121/        v = ops.Reshape()(self.v(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]178
+    %32 = FuncGraph::fg_179(%7)    #(Tensor(F16)[128, 17, 64])    # fg_179=Dense.179 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:121/        v = ops.Reshape()(self.v(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]180
+    %33 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%12, I64(6))    #(I64NoShape, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:121/        v = ops.Reshape()(self.v(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]181
+    %34 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%10, %11, I64(6), %33)    #(I64NoShape, I64NoShape, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:121/        v = ops.Reshape()(self.v(x), (B, N, self.num_heads, C // self.num_heads))/#[CNode]182
+    %35 = %31(%32, %34)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:121/        v = ops.Reshape()(self.v(x), (B, N, self.num_heads, C // self.num_heads))/#v
+    %36 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(1), I64(3))    #(Undefined, Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:122/        v = ops.Transpose()(v, (0, 2, 1, 3))/#[CNode]183
+    %37 = %30(%35, %36)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:122/        v = ops.Transpose()(v, (0, 2, 1, 3))/#v
+    %38 = %3(%29, %37)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]184
+    %39 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(1), I64(3))    #(Undefined, Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]185
+    %40 = %2(%38, %39)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]186
+    %41 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%10, %11, %12)    #(I64NoShape, I64NoShape, I64NoShape) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#[CNode]187
+    %42 = %1(%40, %41)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:128/        x = ops.Reshape()(ops.Transpose()(ops.BatchMatMul()(attn, v), (0, 2, 1, 3)), (B, N, C))/#x
+    %43 = FuncGraph::fg_188(%42)    #(Undefined)    # fg_188=Dense.188 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:129/        x = self.proj(x)/#x
+    %44 = FuncGraph::fg_189(%43)    #(Undefined)    # fg_189=Dropout.189 #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:130/        x = self.proj_drop(x)/#x
+    Primitive::Return{prim_type=1}(%44)    #(Undefined) #scope: Default/network-TrainOneStepWithEMA/network-NetWithLoss/model-VisionTransformer/blocks-SequentialCell/0-Block/attn-Attention
+      # In file /home/mindspore/ms-deit/src/models/vision_transformer.py:131/        return x/#[CNode]190
+}
+# order:
+#   1: @Attention.35:[CNode]160{[0]: ValueNode<Primitive> MixedPrecisionCast, [1]: ValueNode<Float> Float16, [2]: x}
+#   2: @Attention.35:[CNode]163{[0]: ValueNode<Primitive> getattr, [1]: [CNode]160, [2]: ValueNode<StringImm> shape}
+#   3: @Attention.35:B{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]163, [2]: ValueNode<Int64Imm> 0}
+#   4: @Attention.35:N{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]163, [2]: ValueNode<Int64Imm> 1}
+#   5: @Attention.35:C{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]163, [2]: ValueNode<Int64Imm> 2}
+#   6: @Attention.35:[CNode]159{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Reshape'}
+#   7: @Attention.35:[CNode]162{[0]: ValueNode<FuncGraph> Dense.161, [1]: [CNode]160}
+#   8: @Attention.35:[CNode]164{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: C, [2]: ValueNode<Int64Imm> 6}
+#   9: @Attention.35:[CNode]165{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: B, [2]: N, [3]: ValueNode<Int64Imm> 6, [4]: [CNode]164}
+#  10: @Attention.35:[CNode]166{[0]: [CNode]159, [1]: [CNode]162, [2]: [CNode]165}
+#  11: @Attention.35:q{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: [CNode]166, [2]: ValueNode<FP32Imm> 0.316228}
+#  12: @Attention.35:[CNode]158{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Transpose'}
+#  13: @Attention.35:[CNode]167{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 1, [4]: ValueNode<Int64Imm> 3}
+#  14: @Attention.35:q{[0]: [CNode]158, [1]: q, [2]: [CNode]167}
+#  15: @Attention.35:[CNode]169{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Reshape'}
+#  16: @Attention.35:[CNode]171{[0]: ValueNode<FuncGraph> Dense.170, [1]: [CNode]160}
+#  17: @Attention.35:[CNode]172{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: C, [2]: ValueNode<Int64Imm> 6}
+#  18: @Attention.35:[CNode]173{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: B, [2]: N, [3]: ValueNode<Int64Imm> 6, [4]: [CNode]172}
+#  19: @Attention.35:k{[0]: [CNode]169, [1]: [CNode]171, [2]: [CNode]173}
+#  20: @Attention.35:[CNode]168{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Transpose'}
+#  21: @Attention.35:[CNode]174{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 3, [4]: ValueNode<Int64Imm> 1}
+#  22: @Attention.35:k{[0]: [CNode]168, [1]: k, [2]: [CNode]174}
+#  23: @Attention.35:[CNode]178{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Reshape'}
+#  24: @Attention.35:[CNode]180{[0]: ValueNode<FuncGraph> Dense.179, [1]: [CNode]160}
+#  25: @Attention.35:[CNode]181{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: C, [2]: ValueNode<Int64Imm> 6}
+#  26: @Attention.35:[CNode]182{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: B, [2]: N, [3]: ValueNode<Int64Imm> 6, [4]: [CNode]181}
+#  27: @Attention.35:v{[0]: [CNode]178, [1]: [CNode]180, [2]: [CNode]182}
+#  28: @Attention.35:[CNode]177{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Transpose'}
+#  29: @Attention.35:[CNode]183{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 1, [4]: ValueNode<Int64Imm> 3}
+#  30: @Attention.35:v{[0]: [CNode]177, [1]: v, [2]: [CNode]183}
+#  31: @Attention.35:[CNode]157{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.math_ops.BatchMatMul'}
+#  32: @Attention.35:attn{[0]: [CNode]157, [1]: q, [2]: k}
+#  33: @Attention.35:attn{[0]: ValueNode<FuncGraph> Softmax.175, [1]: attn}
+#  34: @Attention.35:attn{[0]: ValueNode<FuncGraph> Dropout.176, [1]: attn}
+#  35: @Attention.35:[CNode]154{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Reshape'}
+#  36: @Attention.35:[CNode]155{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Transpose'}
+#  37: @Attention.35:[CNode]156{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.math_ops.BatchMatMul'}
+#  38: @Attention.35:[CNode]184{[0]: [CNode]156, [1]: attn, [2]: v}
+#  39: @Attention.35:[CNode]185{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 1, [4]: ValueNode<Int64Imm> 3}
+#  40: @Attention.35:[CNode]186{[0]: [CNode]155, [1]: [CNode]184, [2]: [CNode]185}
+#  41: @Attention.35:[CNode]187{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: B, [2]: N, [3]: C}
+#  42: @Attention.35:x{[0]: [CNode]154, [1]: [CNode]186, [2]: [CNode]187}
+#  43: @Attention.35:x{[0]: ValueNode<FuncGraph> Dense.188, [1]: x}
+#  44: @Attention.35:x{[0]: ValueNode<FuncGraph> Dropout.189, [1]: x}
+#  45: @Attention.35:[CNode]190{[0]: ValueNode<Primitive> Return, [1]: x}
+
+
+#===============================================================================
+# num of function graphs in stack: 17/18 (Ignored 1 internal frames).

@@ -31,7 +31,7 @@ class EvaluateCallBack(Callback):
         self.save_freq = save_freq
         self.best_acc = 0.
 
-    def epoch_end(self, run_context):
+    def on_train_epoch_end(self, run_context):
         """
             Test when epoch end, save best model with best.ckpt.
         """

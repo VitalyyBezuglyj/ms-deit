@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+src/data/tiny-imagenet-200/
+ckpt_0/

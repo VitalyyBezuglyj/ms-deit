@@ -31,7 +31,7 @@ from src.tools.optimizer import get_optimizer
 
 def main():
     set_seed(args.seed)
-    context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target)
+    context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target) # PYNATIVE_MODE
     context.set_context(enable_graph_kernel=False)
     if args.device_target == "Ascend":
         context.set_context(enable_auto_mixed_precision=True)
@@ -56,7 +56,7 @@ def main():
     eval_indexes = [0, 1, 2]
     model = Model(net_with_loss, metrics={"acc", "loss"},
                   eval_network=eval_network,
-                  eval_indexes=eval_indexes)
+                  eval_indexes=eval_indexes,    )
 
     config_ck = CheckpointConfig(save_checkpoint_steps=data.train_dataset.get_dataset_size(),
                                  keep_checkpoint_max=args.save_every)

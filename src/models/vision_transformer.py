@@ -111,6 +111,9 @@ class Attention(nn.Cell):
 
     def construct(self, x):
         B, N, C = x.shape
+        # print(f"B {B},N {N}, C {C}")
+        # print(self.q(x).shape)
+        # input()
         q = ops.Reshape()(self.q(x), (B, N, self.num_heads, C // self.num_heads)) * self.scale
         q = ops.Transpose()(q, (0, 2, 1, 3))
         k = ops.Reshape()(self.k(x), (B, N, self.num_heads, C // self.num_heads))
