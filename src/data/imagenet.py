@@ -20,8 +20,8 @@ import zipfile
 
 import mindspore.common.dtype as mstype
 import mindspore.dataset as ds
-import mindspore.dataset.transforms.c_transforms as C
-import mindspore.dataset.vision.py_transforms as py_vision
+import mindspore.dataset.transforms as C
+import mindspore.dataset.vision as T
 
 from src.data.augment.auto_augment import pil_interp, rand_augment_transform
 from src.data.augment.mixup import Mixup
@@ -33,12 +33,22 @@ from datasets import load_dataset
 from PIL import Image
 import numpy as np
 
-class XXXX:
+class AsArray:
     #TODO: rename
-
     def __call__(self, img):
+        return np.array(Image.frombytes('RGB', (64, 64), img, 'raw'))
 
-        return Image.frombytes('RGB', (64, 64), img, 'raw')
+
+class StrInt:
+    #TODO: rename
+    def __call__(self, lbl: str):
+        return lbl.astype(np.int32)        
+
+class Debug:
+    #TODO: rename
+    def __call__(self, img):
+        print(img.shape)
+        return img
 
 # class ImageNet:
 #     """ImageNet Define"""
@@ -105,7 +115,7 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
                                          num_shards=device_num, shard_id=rank_id)
 
     image_size = args.image_size
-
+    # print(data_set.output_types())
     # define map operations
     # BICUBIC: 3
 
@@ -124,37 +134,42 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
         transform_img = [
             # vision.Decode(), TODO delete
             # py_vision.ToPIL(),
-            XXXX(),
+            AsArray(),
+            T.ToPIL(),
+            rand_augment_transform(auto_augment, aa_params),
             RandomResizedCropAndInterpolation(size=args.image_size, scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.),
                                               interpolation=interpolation),
-            py_vision.RandomHorizontalFlip(prob=0.5),
+            T.RandomHorizontalFlip(prob=0.5),
         ]
-        transform_img += [rand_augment_transform(auto_augment, aa_params)]
-        transform_img += [
-            py_vision.ToTensor(),
-            py_vision.Normalize(mean=mean, std=std)]
+        # transform_img += [rand_augment_transform(auto_augment, aa_params)]
+       
         if args.re_prob > 0.:
             transform_img += [RandomErasing(args.re_prob, mode=args.re_mode, max_count=args.re_count)]
+        
+        transform_img += [
+            T.ToTensor(),
+            # Debug(),
+            T.Normalize(mean=mean, std=std, is_hwc = False)]
     else:
         # test transform complete
         transform_img = [
-            # vision.Decode(),
-            # py_vision.ToPIL(),
-            XXXX(),
+            AsArray(),
+            T.ToPIL(),
             Resize(int(args.image_size / args.crop_pct), interpolation=args.interpolation),
-            py_vision.CenterCrop(image_size),
-            py_vision.ToTensor(),
-            py_vision.Normalize(mean=mean, std=std)
+            T.CenterCrop(image_size),
+            T.ToTensor(),
+            # Debug(),
+            T.Normalize(mean=mean, std=std, is_hwc = False)
         ]
-    transform_label = C.TypeCast(mstype.int32)
-    iterator = data_set.create_dict_iterator(output_numpy =True)
+    transform_label = [StrInt(), C.TypeCast(mstype.int32)]
+    # iterator = data_set.create_dict_iterator(output_numpy =True)
 
-    for item in iterator:
-        # print(item['image'])
+    # for item in iterator:
+    #     print(item['image'])
 
-        print(np.array(Image.frombytes('RGB', (64, 64), item['image'], 'raw')).shape)
-        # print(item['image'])
-        break
+    #     print(np.array(Image.frombytes('RGB', (64, 64), item['image'], 'raw')).shape)
+    #     print(type(item['label']))
+    #     break
     data_set = data_set.map(input_columns="image", num_parallel_workers=args.num_parallel_workers,
                             operations=transform_img)
     data_set = data_set.map(input_columns="label", num_parallel_workers=args.num_parallel_workers,

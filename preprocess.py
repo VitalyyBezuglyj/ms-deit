@@ -5,11 +5,13 @@ from PIL import Image
 dataset = load_dataset('Maysee/tiny-imagenet')
 for split, data in dataset.items():
     # def fn(batch):
-    #     batch['image'] = np.array(batch['image']) 
-    #     if len(batch['image'].shape) == 2:
-    #         batch['image'] = np.repeat(batch['image'][:, :, None], 3, axis=-1) 
+    #     if len(batch['image'].size) == 2:
+    #         batch['image'] = np.array(batch['image'].convert('RGB'))
+    #     else: 
+    #         batch['image'] = np.array(batch['image']) 
+
     #     return batch
-    # data.map(fn)
+    data = data.filter(lambda batch: len(np.array(batch['image']).shape) == 3)
     data.to_csv(
         os.path.join("src", "data", f"d_{split}.csv"), index = None
     )
