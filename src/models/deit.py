@@ -67,14 +67,14 @@ class DistilledVisionTransformer(VisionTransformer):
 
 def deit_small_distilled_patch16_64(**kwargs):
     network = DistilledVisionTransformer(
-        img_size=64, patch_size=16, embed_dim=64, depth=12, num_heads=4, mlp_ratio=4, qkv_bias=True,
+        img_size=64, patch_size=16, embed_dim=96, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
     return network
 
 
 def deit_small_patch16_64(**kwargs):
     network = VisionTransformer(
-        img_size=64, patch_size=16, embed_dim=64, depth=12, num_heads=4, mlp_ratio=4, qkv_bias=True,
+        img_size=64, patch_size=16, embed_dim=96, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, epsilon=1e-6), **kwargs)
     return network
 

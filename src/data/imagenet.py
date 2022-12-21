@@ -20,8 +20,13 @@ import zipfile
 
 import mindspore.common.dtype as mstype
 import mindspore.dataset as ds
+<<<<<<< HEAD
 import mindspore.dataset.transforms as C
 import mindspore.dataset.vision as T
+=======
+import mindspore.dataset.transforms as T
+import mindspore.dataset.vision as py_vision
+>>>>>>> remotes/origin/vitaly
 
 from src.data.augment.auto_augment import pil_interp, rand_augment_transform
 from src.data.augment.mixup import Mixup
@@ -107,13 +112,20 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
 
     device_num, rank_id = _get_rank_info()
     shuffle = training
+    # if device_num == 1 or not training:
+    #     data_set = ds.CSVDataset(dataset_files = "/home/mindspore/ms-deit/src/data/d_valid.csv", num_parallel_workers=args.num_parallel_workers,
+    #                                      shuffle=shuffle)
+    # else:
+    #     data_set = ds.CSVDataset(dataset_files = "/home/mindspore/ms-deit/src/data/d_train.csv", num_parallel_workers=args.num_parallel_workers, shuffle=shuffle,
+    #                                      num_shards=device_num, shard_id=rank_id)
+
+
     if device_num == 1 or not training:
-        data_set = ds.CSVDataset(dataset_files = "/home/workdir/src/data/d_valid.csv", num_parallel_workers=args.num_parallel_workers,
+        data_set = ds.ImageFolderDataset(dataset_dir=dataset_dir, num_parallel_workers=args.num_parallel_workers,
                                          shuffle=shuffle)
     else:
-        data_set = ds.CSVDataset(dataset_files = "/home/workdir/src/data/d_train.csv", num_parallel_workers=args.num_parallel_workers, shuffle=shuffle,
+        data_set = ds.ImageFolderDataset(dataset_dir=dataset_dir, num_parallel_workers=args.num_parallel_workers, shuffle=shuffle,
                                          num_shards=device_num, shard_id=rank_id)
-
     image_size = args.image_size
     # print(data_set.output_types())
     # define map operations
@@ -126,57 +138,51 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
             translate_const=int(image_size * 0.45),
             img_mean=tuple([min(255, round(255 * x)) for x in mean]),
         )
-        interpolation = "random"
-        auto_augment = args.auto_augment
-        if interpolation != "random":
-            aa_params["interpolation"] = pil_interp(interpolation)
-        assert auto_augment.startswith('rand')
+        # interpolation = "random"
+        # auto_augment = args.auto_augment
+        # if interpolation != "random":
+        #     aa_params["interpolation"] = pil_interp(interpolation)
+        # assert auto_augment.startswith('rand')
         transform_img = [
-            # vision.Decode(), TODO delete
-            # py_vision.ToPIL(),
-            AsArray(),
-            T.ToPIL(),
-            rand_augment_transform(auto_augment, aa_params),
-            RandomResizedCropAndInterpolation(size=args.image_size, scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.),
-                                              interpolation=interpolation),
-            T.RandomHorizontalFlip(prob=0.5),
+            py_vision.Decode(),
+            py_vision.ToPIL(),
+            py_vision.RandomResizedCrop(size=args.image_size),
+            # RandomResizedCropAndInterpolation(size=args.image_size, scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.),
+            #                                   interpolation=interpolation),
+            py_vision.RandomHorizontalFlip(prob=0.5),
         ]
-        # transform_img += [rand_augment_transform(auto_augment, aa_params)]
-       
+        transform_img += [py_vision.AutoAugment(policy=py_vision.AutoAugmentPolicy.IMAGENET,
+                                                       interpolation=py_vision.Inter.BICUBIC,
+                                                       fill_value=0)]
+
+        transform_img += [
+            py_vision.ToTensor(),
+            py_vision.Normalize(mean=mean, std=std, is_hwc=False)]
         if args.re_prob > 0.:
             transform_img += [RandomErasing(args.re_prob, mode=args.re_mode, max_count=args.re_count)]
         
         transform_img += [
             T.ToTensor(),
-            # Debug(),
             T.Normalize(mean=mean, std=std, is_hwc = False)]
     else:
         # test transform complete
         transform_img = [
-            AsArray(),
-            T.ToPIL(),
+            py_vision.Decode(),
+            py_vision.ToPIL(),
             Resize(int(args.image_size / args.crop_pct), interpolation=args.interpolation),
-            T.CenterCrop(image_size),
-            T.ToTensor(),
-            # Debug(),
-            T.Normalize(mean=mean, std=std, is_hwc = False)
+            py_vision.CenterCrop(image_size),
+            py_vision.ToTensor(),
+            py_vision.Normalize(mean=mean, std=std, is_hwc=False)
         ]
-    transform_label = [StrInt(), C.TypeCast(mstype.int32)]
-    # iterator = data_set.create_dict_iterator(output_numpy =True)
 
-    # for item in iterator:
-    #     print(item['image'])
-
-    #     print(np.array(Image.frombytes('RGB', (64, 64), item['image'], 'raw')).shape)
-    #     print(type(item['label']))
-    #     break
+    transform_label = T.TypeCast(mstype.int32)
     data_set = data_set.map(input_columns="image", num_parallel_workers=args.num_parallel_workers,
                             operations=transform_img)
     data_set = data_set.map(input_columns="label", num_parallel_workers=args.num_parallel_workers,
                             operations=transform_label)
     if (args.mix_up > 0. or args.cutmix > 0.) and not training:
         # if use mixup and not training(False), one hot val data label
-        one_hot = C.OneHot(num_classes=args.num_classes)
+        one_hot = T.OneHot(num_classes=args.num_classes)
         data_set = data_set.map(input_columns="label", num_parallel_workers=args.num_parallel_workers,
                                 operations=one_hot)
     # apply batch operations

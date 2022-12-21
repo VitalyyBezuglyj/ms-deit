@@ -132,3 +132,5 @@ ckpt_0/*
 rank_0/*
 src/data/d_train.csv
 src/data/d_valid.csv
+src/data/tiny-imagenet-200/
+ckpt_0/

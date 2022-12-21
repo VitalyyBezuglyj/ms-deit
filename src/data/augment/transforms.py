@@ -90,6 +90,8 @@ class RandomResizedCropAndInterpolation:
             tuple: params (i, j, h, w) to be passed to ``crop`` for a random
                 sized crop.
         """
+        # print(type(img))
+        # input()
         area = img.size[0] * img.size[1]
 
         for _ in range(10):
