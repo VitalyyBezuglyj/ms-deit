@@ -20,7 +20,7 @@ from mindspore.common import dtype as mstype
 from mindspore.nn.loss.loss import LossBase
 from mindspore.ops import functional as F
 from mindspore.ops import operations as P
-
+from mindspore.train.serialization import load_checkpoint, load_param_into_net
 
 class SoftTargetCrossEntropy(LossBase):
     """SoftTargetCrossEntropy for MixUp Augment"""
@@ -93,3 +93,4 @@ class NetWithLoss(nn.Cell):
         predict = self.model(data)
         loss = self.criterion(predict, label)
         return loss
+

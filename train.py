@@ -19,10 +19,10 @@ from mindspore import Model
 from mindspore import context
 from mindspore import nn
 from mindspore.common import set_seed
-from mindspore.train.callback import ModelCheckpoint, CheckpointConfig, LossMonitor, TimeMonitor
+from mindspore.train.callback import ModelCheckpoint, CheckpointConfig, TimeMonitor
 
 from src.args import args
-from src.tools.callback import EvaluateCallBack
+from src.tools.callback import EvaluateCallBack, LossMonitor
 from src.tools.cell import cast_amp
 from src.tools.criterion import get_criterion, NetWithLoss
 from src.tools.get_misc import get_dataset, set_device, get_model, pretrained, get_train_one_step

@@ -33,7 +33,15 @@ cd ../..
 
 ## Train
 
-```bash 
+
+
+
+```bash
+export WANDB_API_KEY=X #X = your api key
+export WANDB_ENTITY=Y  #Y = your entity
+export WANDB_PROJECT=prjectname
 python train.py --config src/configs/deit_small_patch16_64.yaml
 ```
+
+a0f2005d28a0d578c0fb9ec3f9f5e9f32b682848 
 

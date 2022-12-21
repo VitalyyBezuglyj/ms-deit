@@ -29,9 +29,9 @@ Jinja2==3.1.2
 joblib==1.2.0
 MarkupSafe==2.1.1
 marshmallow==3.18.0
-mindinsight @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/MindInsight/any/mindinsight-1.9.0-py3-none-any.whl
-mindspore-gpu @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/MindSpore/gpu/x86_64/cuda-11.1/mindspore_gpu-1.9.0-cp37-cp37m-linux_x86_64.whl
-mindspore-serving @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/Serving/x86_64/mindspore_serving-1.9.0-cp37-cp37m-linux_x86_64.whl
+# mindinsight @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/MindInsight/any/mindinsight-1.9.0-py3-none-any.whl
+# mindspore-gpu @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/MindSpore/gpu/x86_64/cuda-11.1/mindspore_gpu-1.9.0-cp37-cp37m-linux_x86_64.whl
+# mindspore-serving @ https://ms-release.obs.cn-north-4.myhuaweicloud.com/1.9.0/Serving/x86_64/mindspore_serving-1.9.0-cp37-cp37m-linux_x86_64.whl
 multidict==6.0.3
 multiprocess==0.70.14
 numpy==1.21.6

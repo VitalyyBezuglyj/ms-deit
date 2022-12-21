@@ -20,13 +20,8 @@ import zipfile
 
 import mindspore.common.dtype as mstype
 import mindspore.dataset as ds
-<<<<<<< HEAD
-import mindspore.dataset.transforms as C
-import mindspore.dataset.vision as T
-=======
 import mindspore.dataset.transforms as T
 import mindspore.dataset.vision as py_vision
->>>>>>> remotes/origin/vitaly
 
 from src.data.augment.auto_augment import pil_interp, rand_augment_transform
 from src.data.augment.mixup import Mixup
@@ -155,15 +150,13 @@ def create_dataset_imagenet(dataset_dir, args, repeat_num=1, training=True):
                                                        interpolation=py_vision.Inter.BICUBIC,
                                                        fill_value=0)]
 
+        if args.re_prob > 0.:
+            transform_img += [RandomErasing(args.re_prob, mode=args.re_mode, max_count=args.re_count)]
+            
         transform_img += [
             py_vision.ToTensor(),
             py_vision.Normalize(mean=mean, std=std, is_hwc=False)]
-        if args.re_prob > 0.:
-            transform_img += [RandomErasing(args.re_prob, mode=args.re_mode, max_count=args.re_count)]
-        
-        transform_img += [
-            T.ToTensor(),
-            T.Normalize(mean=mean, std=std, is_hwc = False)]
+       
     else:
         # test transform complete
         transform_img = [

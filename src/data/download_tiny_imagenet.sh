@@ -30,4 +30,5 @@ for i in $(seq 1 $length); do
     mv images/$file $directory
 done
 rm -r images
+rm tiny-imagenet-200.zip
 echo "done"

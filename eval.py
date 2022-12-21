@@ -18,6 +18,7 @@ from mindspore import Model
 from mindspore import context
 from mindspore import nn
 from mindspore.common import set_seed
+import wandb
 
 from src.args import args
 from src.tools.cell import cast_amp
@@ -29,6 +30,7 @@ set_seed(args.seed)
 
 
 def main():
+    wandb.init(reinit=False)
     context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target)
     context.set_context(enable_graph_kernel=False)
     if args.device_target == "Ascend":
@@ -60,6 +62,7 @@ def main():
                   eval_indexes=eval_indexes)
     print(f"=> begin eval")
     results = model.eval(data.val_dataset)
+    wandb.log(results)    
     print(f"=> eval results:{results}")
     print(f"=> eval success")
 

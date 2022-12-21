@@ -38,4 +38,4 @@ docker run -it -d --rm \
         -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
 	-v $CODE:/home/mindspore/ms-deit:rw \
 	# -v $DATA:/data:rw \
-    ms/deit:latest
+    ms/deit

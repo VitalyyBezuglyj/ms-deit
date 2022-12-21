@@ -22,21 +22,21 @@ EXPOSE 22
 
 # Install system dependencies for convinient development inside container
 RUN apt-get update && apt-get install -y \
-    sudo \
+    # sudo \
     tmux \
     openssh-server
 
 # User setup
 ARG USER=mindspore
-ARG UID=1000
-ARG GID=1000
-ARG PW=user
+# ARG UID=1000
+# ARG GID=1000
+# ARG PW=user
 
-# Add user and his password
-RUN useradd -m ${USER} --uid=${UID} \
-    && echo "${USER}:${PW}" | chpasswd \
-    && usermod -s /bin/bash ${USER} \
-    && usermod -a -G sudo ${USER}
+# # Add user and his password
+# RUN useradd -m ${USER} --uid=${UID} \
+#     && echo "${USER}:${PW}" | chpasswd \
+#     && usermod -s /bin/bash ${USER} \
+#     && usermod -a -G sudo ${USER}
 
 ENV WORKDIR /home/${USER}
 WORKDIR /home/${USER}

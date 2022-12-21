@@ -32,8 +32,8 @@ def parse_arguments():
 
     parser.add_argument("-a", "--arch", metavar="ARCH", default="ResNet18", help="model architecture")
     parser.add_argument("--accumulation_step", default=1, type=int, help="accumulation step")
-    parser.add_argument("--amp_level", default="O2", choices=["O0", "O1", "O2", "O3"], help="AMP Level")
-    parser.add_argument("--batch_size", default=256, type=int, metavar="N",
+    parser.add_argument("--amp_level", default="O0", choices=["O0", "O1", "O2", "O3"], help="AMP Level")
+    parser.add_argument("--batch_size", default=128, type=int, metavar="N",
                         help="mini-batch size (default: 256), this is the total "
                              "batch size of all Devices on the current node when "
                              "using Data Parallel or Distributed Data Parallel")
@@ -45,7 +45,7 @@ def parse_arguments():
     parser.add_argument("--device_id", default=0, type=int, help="device id")
     parser.add_argument("--device_num", default=1, type=int, help="device num")
     parser.add_argument("--device_target", default="GPU", choices=["GPU", "Ascend"], type=str)
-    parser.add_argument("--epochs", default=300, type=int, metavar="N", help="number of total epochs to run")
+    parser.add_argument("--epochs", default=100, type=int, metavar="N", help="number of total epochs to run")
     parser.add_argument("--cooldown_epochs", default=10, type=int, help="cooldown epochs")
     parser.add_argument("--eps", default=1e-8, type=float)
     parser.add_argument("--file_format", type=str, choices=["AIR", "MINDIR"], default="MINDIR", help="file format")
