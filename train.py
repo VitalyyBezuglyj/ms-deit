@@ -24,7 +24,7 @@ from mindspore.train.callback import ModelCheckpoint, CheckpointConfig, TimeMoni
 from src.args import args
 from src.tools.callback import EvaluateCallBack, LossMonitor
 from src.tools.cell import cast_amp
-from src.tools.criterion import get_criterion, NetWithLoss
+from src.tools.criterion import get_criterion, NetWithLoss, DistilledNetWithLoss
 from src.tools.get_misc import get_dataset, set_device, get_model, pretrained, get_train_one_step
 from src.tools.optimizer import get_optimizer
 
@@ -38,12 +38,18 @@ def main():
     rank = set_device(args)
 
     # get model and cast amp_level
-    if "distilled" in args.arch:
-        raise ValueError(f"{args.arch} is not supported!!")
     net = get_model(args)
     cast_amp(net)
     criterion = get_criterion(args)
-    net_with_loss = NetWithLoss(net, criterion)
+    
+
+    if "distilled" in args.arch:
+        net_t = get_model(args)
+        net_with_loss = DistilledNetWithLoss(net, net_t, criterion, args)
+    else: 
+        net_with_loss = NetWithLoss(net, criterion)
+
+
     if args.pretrained:
         pretrained(args, net)
 

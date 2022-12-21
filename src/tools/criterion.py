@@ -21,6 +21,7 @@ from mindspore.nn.loss.loss import LossBase
 from mindspore.ops import functional as F
 from mindspore.ops import operations as P
 from mindspore.train.serialization import load_checkpoint, load_param_into_net
+from mindspore.ops import KLDivLoss
 
 class SoftTargetCrossEntropy(LossBase):
     """SoftTargetCrossEntropy for MixUp Augment"""
@@ -59,6 +60,22 @@ class CrossEntropySmooth(LossBase):
         return loss2
 
 
+class SoftTargetCrossEntropy(LossBase):
+    """SoftTargetCrossEntropy for MixUp Augment"""
+
+    def __init__(self):
+        super(SoftTargetCrossEntropy, self).__init__()
+        self.mean_ops = P.ReduceMean(keep_dims=False)
+        self.sum_ops = P.ReduceSum(keep_dims=False)
+        self.log_softmax = P.LogSoftmax()
+
+    def construct(self, logit, label):
+        logit = P.Cast()(logit, mstype.float32)
+        label = P.Cast()(label, mstype.float32)
+        loss = self.sum_ops(-label * self.log_softmax(logit), -1)
+        return self.mean_ops(loss)
+
+
 def get_criterion(args):
     """Get loss function from args.label_smooth and args.mix_up"""
     assert args.label_smoothing >= 0. and args.label_smoothing <= 1.
@@ -94,3 +111,26 @@ class NetWithLoss(nn.Cell):
         loss = self.criterion(predict, label)
         return loss
 
+
+class DistilledNetWithLoss(nn.Cell):
+
+    def __init__(self, model_s, model_t, criterion, args):
+        super(DistilledNetWithLoss, self).__init__()
+        self.model_s = model_s
+        self.tau = args.tau
+        self.model_t = model_t
+        param_dict = load_checkpoint(args.ckpt_pretrained)
+        load_param_into_net(self.model_t, param_dict)
+        self.model_t.set_train(False)
+
+        self.base_criterion = criterion
+        if args.dist_type == "hard":
+            self.dist_criterion = KLDivLoss(reduction = "mean")
+        elif args.dist_type == "soft":
+            self.dist_criterion = SoftTargetCrossEntropy()
+
+    def construct(self, data, label):
+        predict, dist_pred = self.model_s(data)
+        soft_label = self.model_t(data)
+        loss = self.base_criterion(predict, label) * self.tau + (1. - self.tau) * self.dist_criterion(dist_pred, soft_label)
+        return loss

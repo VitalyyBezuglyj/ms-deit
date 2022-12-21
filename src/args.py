@@ -72,6 +72,7 @@ def parse_arguments():
     parser.add_argument("--momentum", default=0.9, type=float, metavar="M", help="momentum")
     parser.add_argument("--num_classes", default=1000, type=int)
     parser.add_argument("--pretrained", dest="pretrained", default=None, type=str, help="use pre-trained model")
+    parser.add_argument("--ckpt_pretrained", dest="pretrained", default=None, type=str, help="a path to pre-trained teacher model")
     parser.add_argument("--config", help="Config file to use (see configs dir)", default=None)
     parser.add_argument("--seed", default=0, type=int, help="seed for initializing training. ")
     parser.add_argument("--save_every", default=2, type=int, help="save every ___ epochs(default:2)")
@@ -80,6 +81,10 @@ def parse_arguments():
     parser.add_argument("--crop_pct", default=0.875, help="crop pct.", type=float)
     parser.add_argument('--train_url', default="./", help='location of training outputs.')
     parser.add_argument("--run_modelarts", type=ast.literal_eval, default=False, help="whether run on modelarts")
+    ####dist
+    parser.add_argument("--dist_type", type=str, choices=["hard", "soft"], default="soft", help="a type of distillation to use")
+    parser.add_argument("--tau", type=float, default=0.5, help="tau coefficient of balance")
+
     args = parser.parse_args()
 
     get_config()
