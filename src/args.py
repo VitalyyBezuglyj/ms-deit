@@ -83,7 +83,7 @@ def parse_arguments():
     parser.add_argument("--run_modelarts", type=ast.literal_eval, default=False, help="whether run on modelarts")
     ####dist
     parser.add_argument("--dist_type", type=str, choices=["hard", "soft"], default="soft", help="a type of distillation to use")
-    parser.add_argument("--tau", type=float, default=0.5, help="tau coefficient of balance")
+    parser.add_argument("--tau", type=float, default=0.7, help="tau coefficient of balance")
 
     args = parser.parse_args()
 

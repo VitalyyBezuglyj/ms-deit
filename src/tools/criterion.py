@@ -152,10 +152,10 @@ class DistilledNetWithLoss(nn.Cell):
         if args.dist_type == "hard":
             self.dist_criterion = KLDivLoss(reduction = "mean")
         elif args.dist_type == "soft":
-            self.dist_criterion = SoftTargetCrossEntropy()
+            self.dist_criterion = nn.CrossEntropyLoss() #SoftTargetCrossEntropy()
 
     def construct(self, data, label):
         predict, dist_pred = self.model_s(data)
         soft_label = self.model_t(data)
-        loss = self.base_criterion(predict, label) * self.tau + (1. - self.tau) * self.dist_criterion(dist_pred, soft_label)
+        loss = self.base_criterion(predict, label) * self.tau + (1. - self.tau) * self.dist_criterion(ops.log_softmax(dist_pred, axis=1), ops.argmax(soft_label, axis=1))
         return loss

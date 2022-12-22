@@ -32,12 +32,12 @@ amp_level: O2
 beta: [ 0.9, 0.999 ]
 clip_global_norm_value: 5.
 is_dynamic_loss_scale: True
-epochs: 300
+epochs: 200
 cooldown_epochs: 10
 label_smoothing: 0.1
 weight_decay: 0.05
 momentum: 0.9
-batch_size: 128
+batch_size: 256
 drop_path_rate: 0.1
 ckpt_pretrained: ./default.ckpt
 
