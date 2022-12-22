@@ -31,7 +31,7 @@ from src.tools.optimizer import get_optimizer
 
 def main():
     set_seed(args.seed)
-    context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target) # PYNATIVE_MODE
+    context.set_context(mode=context.GRAPH_MODE, device_target=args.device_target) # PYNATIVE_MODE GRAPH_MODE
     context.set_context(enable_graph_kernel=False)
     if args.device_target == "Ascend":
         context.set_context(enable_auto_mixed_precision=True)
@@ -44,8 +44,9 @@ def main():
     
 
     if "distilled" in args.arch:
-        net_t = get_model(args)
-        net_with_loss = DistilledNetWithLoss(net, net_t, criterion, args)
+        net_t = get_model(args, teacher=True)
+        cast_amp(net_t)
+        net_with_loss = DistilledNetWithLoss(model_s=net, model_t=net_t, criterion=criterion, args=args)
     else: 
         net_with_loss = NetWithLoss(net, criterion)
 

@@ -14,6 +14,7 @@
 # ============================================================================
 """functions of criterion"""
 import mindspore.nn as nn
+import numpy as np
 from mindspore import Tensor
 from mindspore import ops
 from mindspore.common import dtype as mstype
@@ -22,6 +23,8 @@ from mindspore.ops import functional as F
 from mindspore.ops import operations as P
 from mindspore.train.serialization import load_checkpoint, load_param_into_net
 from mindspore.ops import KLDivLoss
+
+from pprint import pprint
 
 class SoftTargetCrossEntropy(LossBase):
     """SoftTargetCrossEntropy for MixUp Augment"""
@@ -119,8 +122,30 @@ class DistilledNetWithLoss(nn.Cell):
         self.model_s = model_s
         self.tau = args.tau
         self.model_t = model_t
+        param_num_t = 0
+        # for value in model_t.get_parameters():
+        #     param_num_t += np.asarray(value.shape).prod()
+
+        # param_num_s = 0
+        # for value in model_s.get_parameters():
+        #     param_num_s += np.asarray(value.shape).prod()    
+        # print('=======================================================')
+
         param_dict = load_checkpoint(args.ckpt_pretrained)
-        load_param_into_net(self.model_t, param_dict)
+        param_dict_renewed ={}
+        for key, value in param_dict.items():
+            # print(key)
+            key = key.replace('model', 'model_t')
+            # print(key)
+            # input()
+            param_dict_renewed[key] = value
+        # pprint(param_dict_renewed)
+        # input()
+        # print(f"teacher: {param_num_t} dist: {param_num_s}")
+        # input()
+
+
+        load_param_into_net(self.model_t, param_dict_renewed)
         self.model_t.set_train(False)
 
         self.base_criterion = criterion

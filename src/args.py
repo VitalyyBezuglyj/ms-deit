@@ -72,7 +72,7 @@ def parse_arguments():
     parser.add_argument("--momentum", default=0.9, type=float, metavar="M", help="momentum")
     parser.add_argument("--num_classes", default=1000, type=int)
     parser.add_argument("--pretrained", dest="pretrained", default=None, type=str, help="use pre-trained model")
-    parser.add_argument("--ckpt_pretrained", dest="pretrained", default=None, type=str, help="a path to pre-trained teacher model")
+    parser.add_argument("--ckpt_pretrained", default=None, type=str, help="a path to pre-trained teacher model") # , dest="pretrained"
     parser.add_argument("--config", help="Config file to use (see configs dir)", default=None)
     parser.add_argument("--seed", default=0, type=int, help="seed for initializing training. ")
     parser.add_argument("--save_every", default=2, type=int, help="save every ___ epochs(default:2)")

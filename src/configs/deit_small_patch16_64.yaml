@@ -1,5 +1,5 @@
 # Architecture 79.9%
-arch: deit_small_patch16_64
+arch: deit_small_distilled_patch16_64
 
 # ===== Dataset ===== #
 data_url: ./src/data/tiny-imagenet-200/
@@ -39,6 +39,7 @@ weight_decay: 0.05
 momentum: 0.9
 batch_size: 128
 drop_path_rate: 0.1
+ckpt_pretrained: ./default.ckpt
 
 # ===== EMA ===== #
 with_ema: False
